@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+<html lang="ar-JO" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="charter">
+  <title>شركة الياقوت العقارية (جواهر) — بوابة الاستثمار العقاري في طرابزون 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Charter Palette Tokens */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --on-secondary: #fffdf8;
+      --secondary-container: #e4ede9;
+      --tertiary: #8a6a35;
+      --tertiary-container: #f4ecdc;
+      --error: #9b2c2c;
+      --on-error: #f7f4ec;
+      --error-container: #f9e8e8;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Semantic & Focus */
+      --positive: #2d5a4a;
+      --warning: #8a6a35;
+      --focus: #14213d;
+
+      /* Fonts (Arabic first per design_foundation RTL guidance) */
+      --font-headline: 'Noto Naskh Arabic', 'Libre Caslon Text', serif;
+      --font-body: 'Noto Sans Arabic', 'Inter', sans-serif;
+      --font-label: 'Noto Sans Arabic', 'IBM Plex Mono', monospace;
+      --font-mono: 'IBM Plex Mono', monospace;
+
+      /* Shape */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style Effects */
+      --brass-rule: 2px solid var(--outline);
+      --brass-rule-heavy: 3px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --navy-outline: 1px solid var(--primary);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+      --title-brass-text: color-mix(in srgb, var(--outline) 78%, var(--on-primary));
+      --title-muted-text: color-mix(in srgb, var(--on-primary) 80%, var(--primary));
+      --navy-hover: color-mix(in srgb, var(--primary) 88%, var(--on-surface));
+
+      /* Narrative Type Scale */
+      --display-size: clamp(2.15rem, 1.45rem + 2.6vw, 3.35rem);
+      --headline-size: clamp(1.55rem, 1.2rem + 1.35vw, 2.25rem);
+      --subhead-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.4rem);
+      --body-size: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Spacing Scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base Reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.65;
+      scroll-behavior: smooth;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-decoration-color: var(--outline);
+      text-underline-offset: 4px;
+      transition: text-decoration-thickness var(--dur-micro) var(--ease-out);
+    }
+    a:hover { text-decoration-thickness: 2px; }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums lining-nums;
+      letter-spacing: 0;
+    }
+
+    /* Layout Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-inline: var(--space-lg);
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-2xl);
+      padding-block: var(--space-xl) var(--space-3xl);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-inline: var(--space-lg);
+      overflow-x: clip;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Charter Title Band */
+    .title-band {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-bottom: var(--brass-rule-heavy);
+      padding-block: var(--space-lg) var(--space-2xl);
+    }
+
+    .top-utility-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid color-mix(in srgb, var(--outline) 45%, var(--primary));
+      margin-bottom: var(--space-xl);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .brand-seal {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid var(--outline);
+      display: grid;
+      place-items: center;
+      color: var(--title-brass-text);
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.25rem;
+      border-radius: var(--rounded);
+      flex-shrink: 0;
+    }
+
+    .brand-name-main {
+      font-family: var(--font-headline);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--on-primary);
+      line-height: 1.25;
+    }
+
+    .brand-name-sub {
+      font-size: var(--label-size);
+      color: var(--title-brass-text);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .nav-links a {
+      color: var(--title-muted-text);
+      text-decoration: none;
+      font-size: var(--label-size);
+      font-weight: 500;
+      padding-block: var(--space-xs);
+      border-bottom: 1px solid transparent;
+      transition: color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--on-primary);
+      border-bottom-color: var(--outline);
+    }
+
+    .title-kicker {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--title-brass-text);
+      margin-bottom: var(--space-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.2;
+      color: var(--on-primary);
+      margin: 0 0 var(--space-md);
+      max-width: 28ch;
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--outline);
+    }
+
+    .title-band .lede {
+      font-size: var(--subhead-size);
+      line-height: 1.6;
+      color: var(--title-muted-text);
+      max-width: 65ch;
+      margin: 0 0 var(--space-lg);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out),
+                  color var(--dur-micro) var(--ease-out),
+                  border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--navy-hover);
+    }
+
+    .btn-brass {
+      background: var(--outline);
+      color: var(--primary);
+      border-color: var(--outline);
+    }
+    .btn-brass:hover {
+      background: var(--title-brass-text);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: var(--navy-outline);
+    }
+    .btn-outline:hover {
+      background: var(--primary-container);
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      color: var(--on-primary);
+      border: 1px solid var(--outline);
+    }
+    .btn-outline-light:hover {
+      background: color-mix(in srgb, var(--outline) 18%, var(--primary));
+    }
+
+    .btn-sm {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      font-size: var(--label-size);
+    }
+
+    .btn[aria-pressed="true"],
+    .btn.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Statement Figures Strip */
+    .hero-figures {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+
+    .figure-card {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+    }
+
+    .figure-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+      line-height: 1.2;
+      color: var(--on-surface);
+      font-variant-numeric: tabular-nums lining-nums;
+    }
+
+    .figure-delta {
+      font-size: var(--label-size);
+      color: var(--tertiary);
+      font-weight: 600;
+      margin-top: var(--space-xs);
+    }
+    .figure-delta.positive {
+      color: var(--positive);
+    }
+
+    /* Section Headings */
+    .section-block {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    .section-head {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-md);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .section-kicker {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+    }
+
+    .section-head h2 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      line-height: 1.25;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      max-width: 72ch;
+    }
+
+    /* Subheadings */
+    h3 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      line-height: 1.3;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-sm);
+    }
+
+    /* Asymmetric Split Grids */
+    .split-asymmetric {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .split-balanced {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+
+    /* Leaf Cards & Cream Panels */
+    .leaf-panel {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    .cream-panel {
+      background: var(--surface-container);
+      border-top: var(--brass-rule);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    /* Squared Stamp Tags */
+    .stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      border: 1px solid var(--outline);
+      color: var(--tertiary);
+      background: transparent;
+      border-radius: var(--rounded);
+      padding: 0.15rem 0.5rem;
+      font-size: var(--label-size);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .stamp-green {
+      border-color: var(--secondary);
+      color: var(--secondary);
+      background: var(--secondary-container);
+    }
+
+    .stamp-navy {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-container);
+    }
+
+    .stamp-warn {
+      border-color: var(--error);
+      color: var(--error);
+      background: var(--error-container);
+    }
+
+    .stamp-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    /* Tables */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+    }
+
+    thead th {
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+      font-weight: 600;
+      font-size: var(--label-size);
+      text-align: start;
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--brass-rule);
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--hairline);
+      vertical-align: top;
+    }
+
+    tbody tr:hover {
+      background: var(--surface-container);
+    }
+
+    .num-cell {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* Profile List */
+    .profile-kv {
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-md);
+      padding-block: var(--space-xs);
+      border-bottom: var(--hairline);
+    }
+
+    .profile-row dt {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+
+    .profile-row dd {
+      margin: 0;
+      font-weight: 600;
+      color: var(--on-surface);
+      text-align: end;
+    }
+
+    /* Interactive Funnel Navigator */
+    .funnel-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      padding: var(--space-md);
+      background: var(--surface-container);
+      border-top: var(--brass-rule);
+      border-bottom: var(--hairline);
+    }
+
+    .funnel-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+      transition: background-color var(--dur-short) var(--ease-out),
+                  box-shadow var(--dur-short) var(--ease-out);
+    }
+
+    .funnel-card.is-highlighted {
+      background: var(--primary-container);
+      box-shadow: inset 0 0 0 1px var(--primary);
+    }
+
+    .funnel-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+    }
+
+    .funnel-num {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: var(--label-size);
+      color: var(--tertiary);
+    }
+
+    /* Interactive Floorplan & Corridor SVG Containers */
+    .schematic-box {
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-top: var(--brass-rule);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .schematic-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: var(--background);
+      border: var(--hairline);
+    }
+
+    /* Filter Toolbar & Unit Cards */
+    .filter-toolbar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+      background: var(--surface-container);
+      border-top: var(--brass-rule);
+      padding: var(--space-md) var(--space-lg);
+    }
+
+    .field-group {
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .field-group label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+
+    .field-control {
+      width: 100%;
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      transition: border-color var(--dur-micro) var(--ease-out);
+    }
+
+    select.field-control {
+      padding-inline-end: var(--space-xl);
+    }
+
+    .field-control:focus {
+      border-color: var(--primary);
+      outline: 2px solid var(--focus);
+      outline-offset: 1px;
+    }
+
+    .unit-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .unit-card.is-matched {
+      box-shadow: inset 0 0 0 1px var(--outline);
+    }
+
+    .unit-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-sm);
+      padding-block: var(--space-sm);
+      border-top: var(--hairline);
+      border-bottom: var(--hairline);
+    }
+
+    .unit-meta-item {
+      display: grid;
+      gap: 2px;
+    }
+
+    .unit-meta-label {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    .unit-meta-val {
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+
+    .unit-price {
+      font-family: var(--font-headline);
+      font-size: 1.45rem;
+      color: var(--primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .unit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Calculator Dual Panel */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .slider-pair {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 130px;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      min-height: 44px;
+      cursor: pointer;
+    }
+
+    .calc-results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      min-height: 320px;
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      padding: var(--space-md);
+    }
+
+    /* WhatsApp Dossier Builder */
+    .wa-preview-box {
+      background: var(--background);
+      border: var(--navy-outline);
+      border-inline-start: 4px solid var(--secondary);
+      padding: var(--space-md);
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--on-surface);
+      min-height: 180px;
+    }
+
+    .status-banner {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+      display: none;
+    }
+    .status-banner.is-visible {
+      display: block;
+    }
+    .status-banner.success {
+      background: var(--secondary-container);
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+    }
+    .status-banner.warning {
+      background: var(--tertiary-container);
+      color: var(--tertiary);
+      border: 1px solid var(--outline);
+    }
+    .status-banner.error {
+      background: var(--error-container);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+
+    /* Collapsible Details */
+    details.legal-drawer {
+      background: var(--surface-container-low);
+      border-top: var(--hairline);
+      border-bottom: var(--hairline);
+      padding: var(--space-sm) var(--space-md);
+    }
+    details.legal-drawer summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primary);
+      padding-block: var(--space-xs);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--surface-container);
+      border-top: var(--brass-rule-heavy);
+      padding-block: var(--space-xl);
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .shortlist-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .shortlist-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      padding: var(--space-xs) var(--space-sm);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+
+    .shortlist-remove {
+      background: transparent;
+      border: none;
+      color: var(--error);
+      cursor: pointer;
+      font-weight: 700;
+      padding: 0 var(--space-xs);
+      min-height: 28px;
+      min-width: 28px;
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .split-asymmetric,
+      .split-balanced,
+      .calc-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding-inline: var(--space-md);
+        gap: var(--space-xl);
+      }
+      .calc-results-grid,
+      .unit-meta-grid,
+      .slider-pair {
+        grid-template-columns: 1fr;
+      }
+      .top-utility-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CHARTER TITLE BAND -->
+  <header class="title-band">
+    <div class="container">
+      <div class="top-utility-bar">
+        <div class="brand-lockup">
+          <div class="brand-seal" aria-hidden="true">ي</div>
+          <div>
+            <div class="brand-name-main">شركة الياقوت العقارية — جواهر (<bdi dir="ltr">Cevahir</bdi>)</div>
+            <div class="brand-name-sub">طرابزون · بيلتلي · شارع بهار رقم <bdi dir="ltr">1A</bdi> · <bdi dir="ltr">+90 552 715 6125</bdi></div>
+          </div>
+        </div>
+        <nav class="nav-links" aria-label="التنقل الرئيسي">
+          <a href="#company-profile">الملف التعريفي</a>
+          <a href="#flagship-complexes">المجمعات السكنية</a>
+          <a href="#multi-funnel">الأقماع الخمسة</a>
+          <a href="#units-explorer">الشقق والمواصفات</a>
+          <a href="#roi-calculator">حاسبة العائد</a>
+          <a href="#legal-2026">الضوابط القانونية</a>
+          <a href="#whatsapp-dossier">تواصل واتساب</a>
+        </nav>
+      </div>
+
+      <div class="title-kicker">
+        <i data-lucide="compass" aria-hidden="true" width="16" height="16"></i>
+        <span>الخطة التسويقية الاستراتيجية الشاملة في طرابزون · إصدار 2026</span>
+      </div>
+
+      <h1>الاستثمار العقاري الممنهج على ساحل البحر الأسود: بوابة الياقوت لمجمعي مارين سيتي وماونتن فيو</h1>
+
+      <p class="lede">
+        دليل تنفيذي ومنصة استشارية متكاملة من شركة الياقوت العقارية (جواهر — أورتاهيسار، طرابزون) مصممة وفق استراتيجية التسويق متعدد الأقماع؛ تجمع بين فرص التملك البحرية والجبليّة، وتدقيق قانون التأجير السياحي (<bdi dir="ltr">7464</bdi>)، وهيكلة ملفات الجنسية التركية والإقامة العقارية وفق أحدث تشريعات عام 2026.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#units-explorer" class="btn btn-brass">
+          <i data-lucide="building-2" aria-hidden="true" width="18" height="18"></i>
+          <span>استكشاف الوحدات المتاحة</span>
+        </a>
+        <a href="#roi-calculator" class="btn btn-outline-light">
+          <i data-lucide="calculator" aria-hidden="true" width="18" height="18"></i>
+          <span>حاسبة العائد والضرائب</span>
+        </a>
+        <a href="#whatsapp-dossier" class="btn btn-outline-light">
+          <i data-lucide="message-square" aria-hidden="true" width="18" height="18"></i>
+          <span>إعداد طلب استشارة واتساب</span>
+        </a>
+      </div>
+
+      <!-- 4 Statement Figures -->
+      <div class="hero-figures">
+        <div class="figure-card">
+          <div class="figure-label">العائد الإيجاري الإجمالي في طرابزون</div>
+          <div class="figure-value"><bdi dir="ltr">7.0% – 10.0%</bdi></div>
+          <div class="figure-delta positive">مقابل 5.8% في الرياض و6–9% في دبي</div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-label">نقطة الدخول لوحدات <bdi dir="ltr">1+1</bdi></div>
+          <div class="figure-value"><bdi dir="ltr">$75,000 – $100,000</bdi></div>
+          <div class="figure-delta">عرض مارين سيتي: <bdi dir="ltr">3,400,000 TRY</bdi></div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-label">عتبات الإقامة والجنسية 2026</div>
+          <div class="figure-value"><bdi dir="ltr">$200K / $400K</bdi></div>
+          <div class="figure-delta">حظر بيع 3 سنوات للجنسية (قانون 5901)</div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-label">إعفاء ضريبة القيمة المضافة (<bdi dir="ltr">KDV</bdi>)</div>
+          <div class="figure-value"><bdi dir="ltr">0% (10%–20% وفر)</bdi></div>
+          <div class="figure-delta positive">للمشتري غير المقيم وفق المادة <bdi dir="ltr">13/i</bdi></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+
+    <!-- SECTION 1: COMPANY PROFILE & SERVICES -->
+    <section id="company-profile" class="section-block reveal">
+      <div class="section-head">
+        <span class="section-kicker">01 · الملف التعريفي الرسمي والخدمات الاستشارية</span>
+        <h2>شركة الياقوت العقارية (جواهر): إدارة ميدانية في قلب أورتاهيسار — طرابزون</h2>
+        <p>تعمل الشركة انطلاقاً من مقرها في منطقة بيليتلي الاستراتيجية بالقرب من مطار طرابزون الدولي وجامعة البحر الأسود التقنية، لتقديم وساطة عقارية وهيكلة قانونية تحمي رأس مال المستثمر الأجنبي قبل دفع أي عربون (<bdi dir="ltr">Kapora</bdi>).</p>
+      </div>
+
+      <div class="split-asymmetric">
+        <div class="leaf-panel">
+          <h3>نطاق الخدمات التنفيذية للمستثمر الأردني والخليجي</h3>
+          <p>في السوق التركي، تعتمد حماية الأصول على التعامل مع الصفقة العقارية كإجراء قانوني منضبط لا كمجرد معاملة تجارية. توفر الياقوت وجواهر حزمة خدمات مترابطة تغطي دورة التملك كاملة:</p>
+          <div class="card-grid" style="margin-top: var(--space-md);">
+            <div class="cream-panel">
+              <div class="stamp-row" style="margin-bottom: var(--space-xs);">
+                <span class="stamp">الوساطة والاختيار الميداني</span>
+              </div>
+              <p style="margin: 0; font-size: 0.9375rem;">جولات عقارية مخصصة في مجمعي <strong>مارين سيتي</strong> و<strong>طرابزون ماونتن فيو</strong>، مع مقارنة موضوعية للعوائد الصافية حسب كل بلدية في طرابزون.</p>
+            </div>
+            <div class="cream-panel">
+              <div class="stamp-row" style="margin-bottom: var(--space-xs);">
+                <span class="stamp stamp-green">التدقيق القانوني والمالي</span>
+              </div>
+              <p style="margin: 0; font-size: 0.9375rem;">التأكد من خلو الطابو من الحجز (<bdi dir="ltr">Haciz</bdi>)، التحقق من رخصة السكن (<bdi dir="ltr">İskân</bdi>)، الإذن العسكري، التثمين (<bdi dir="ltr">SPK</bdi>)، وإصدار وثيقة تحويل العملة (<bdi dir="ltr">DAB</bdi>).</p>
+            </div>
+            <div class="cream-panel">
+              <div class="stamp-row" style="margin-bottom: var(--space-xs);">
+                <span class="stamp stamp-navy">ملفات الجنسية والإقامة</span>
+              </div>
+              <p style="margin: 0; font-size: 0.9375rem;">هيكلة شراء وحدة واحدة أو محفظة مدمجة بقيمة <bdi dir="ltr">≥ $400,000</bdi> للجنسية أو <bdi dir="ltr">≥ $200,000</bdi> للإقامة، بما في ذلك التوكيل الرسمي عن بُعد (<bdi dir="ltr">Vekaletname</bdi>).</p>
+            </div>
+            <div class="cream-panel">
+              <div class="stamp-row" style="margin-bottom: var(--space-xs);">
+                <span class="stamp">التأجير السياحي والدمج العائلي</span>
+              </div>
+              <p style="margin: 0; font-size: 0.9375rem;">تكييف العقود مع قانون السياحة رقم <bdi dir="ltr">7464</bdi> أو قانون الالتزامات <bdi dir="ltr">6098</bdi>، وتنسيق دمج الوحدات المتجاورة مثل <bdi dir="ltr">A7 + A8</bdi> للعائلات الكبيرة.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="leaf-panel" aria-label="بطاقة الملف التعريفي الرسمي">
+          <div class="stamp-row" style="margin-bottom: var(--space-sm);">
+            <span class="stamp stamp-navy">بيانات القيد والاتصال الرسمية</span>
+          </div>
+          <h3>ملف الشركة المعتمد (<bdi dir="ltr">Profile</bdi>)</h3>
+          <dl class="profile-kv">
+            <div class="profile-row">
+              <dt>الممثل والمدير المسؤول</dt>
+              <dd><bdi dir="ltr">Kasim SH</bdi> (قاسم)</dd>
+            </div>
+            <div class="profile-row">
+              <dt>معرّف الحساب</dt>
+              <dd class="mono"><bdi dir="ltr">KasimSh</bdi></dd>
+            </div>
+            <div class="profile-row">
+              <dt>اسم الشركة</dt>
+              <dd>جواهر / الياقوت العقارية (<bdi dir="ltr">Cevahir</bdi>)</dd>
+            </div>
+            <div class="profile-row">
+              <dt>الدولة والمدينة</dt>
+              <dd>تركيا — طرابزون (<bdi dir="ltr">Trabzon</bdi>)</dd>
+            </div>
+            <div class="profile-row">
+              <dt>الحي والمنطقة</dt>
+              <dd>بيليتلي، أورتاهيسار (<bdi dir="ltr">Pelitli / Ortahisar</bdi>)</dd>
+            </div>
+            <div class="profile-row">
+              <dt>العنوان التفصيلي</dt>
+              <dd class="mono" style="font-size: 0.8125rem;"><bdi dir="ltr">Pelitli, Bahar Sk. no 1A, 61000</bdi></dd>
+            </div>
+            <div class="profile-row">
+              <dt>الرمز البريدي</dt>
+              <dd class="mono"><bdi dir="ltr">61000</bdi></dd>
+            </div>
+            <div class="profile-row">
+              <dt>الهاتف المباشر (واتساب)</dt>
+              <dd class="mono"><bdi dir="ltr">+90 552 715 6125</bdi></dd>
+            </div>
+            <div class="profile-row">
+              <dt>هاتف مبيعات الياقوت</dt>
+              <dd class="mono"><bdi dir="ltr">+90 554 141 2515</bdi></dd>
+            </div>
+            <div class="profile-row">
+              <dt>الهاتف الثابت</dt>
+              <dd class="mono"><bdi dir="ltr">(462) 400-2561</bdi></dd>
+            </div>
+            <div class="profile-row">
+              <dt>البريد الإلكتروني</dt>
+              <dd class="mono" style="font-size: 0.8125rem;"><bdi dir="ltr">jwahrcevahir23@gmail.com</bdi></dd>
+            </div>
+            <div class="profile-row" style="border-bottom: none;">
+              <dt>بريد الياقوت</dt>
+              <dd class="mono" style="font-size: 0.8125rem;"><bdi dir="ltr">info@alyakut.net</bdi></dd>
+            </div>
+          </dl>
+          <div style="margin-top: var(--space-md); display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+            <button type="button" class="btn btn-primary btn-sm" onclick="copyText('+905527156125', 'profile-copy-msg', 'تم نسخ رقم الواتساب المباشر لقاسم (+905527156125)')">
+              <i data-lucide="copy" aria-hidden="true" width="15" height="15"></i>
+              <span>نسخ رقم قاسم المباشر</span>
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="copyText('jwahrcevahir23@gmail.com', 'profile-copy-msg', 'تم نسخ البريد الإلكتروني الرسمي')">
+              <span>نسخ البريد</span>
+            </button>
+          </div>
+          <div id="profile-copy-msg" class="status-banner success" style="margin-top: var(--space-sm);" role="status" aria-live="polite"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FLAGSHIP COMPLEXES & CORRIDOR SCHEMATIC -->
+    <section id="flagship-complexes" class="section-block reveal">
+      <div class="section-head">
+        <span class="section-kicker">02 · المشاريع الرئيسية والموقع الجغرافي</span>
+        <h2>مجمعا «مارين سيتي» و«طرابزون ماونتن فيو»: تكامل الواجهة البحرية والمرتفعات الخضراء</h2>
+        <p>يغطي المشروعان أهم ركيزتين في طلب المستثمرين العرب والأردنيين: القرب الفندقي المباشر من البحر والمطار في يومرا-كاشوستو، والهدوء الجبلي المناخي مع خيارات الدمج العائلي في ماونتن فيو.</p>
+      </div>
+
+      <div class="split-balanced">
+        <!-- Marine City -->
+        <article class="leaf-panel">
+          <div class="stamp-row" style="margin-bottom: var(--space-sm);">
+            <span class="stamp stamp-navy">يومرا — كاشوستو</span>
+            <span class="stamp stamp-green">صف أول على البحر</span>
+            <span class="stamp">مؤهل للجنسية والإقامة</span>
+          </div>
+          <h3>مجمع مارين سيتي (<bdi dir="ltr">Marine City &amp; Trio</bdi>)</h3>
+          <p>أكبر مشروع ريزيدنس متكامل صف أول على البحر الأسود في قلب منطقة يومرا — كاشوستو (<bdi dir="ltr">Sancak Mah. 1601. Sok. No:12, Yomra</bdi>). يضم المشروع مرحلتين متكاملتين:</p>
+          <ul>
+            <li><strong>المرحلة الأولى (مارين سيتي):</strong> تضم <bdi dir="ltr">12,000</bdi> م² من المسطحات الخضراء والمائية، وشققاً واسعة تصل إلى <bdi dir="ltr">4+1</bdi> بمساحة <bdi dir="ltr">253</bdi> م² بتصميم «شقة داخل شقة».</li>
+            <li><strong>المرحلة الثانية (مارين سيتي تريو):</strong> مقامة على أرض بمساحة <bdi dir="ltr">24,000</bdi> م² تتألف من <bdi dir="ltr">3</bdi> بلوكات بإطلالات بحرية وجبلية وأنماط <bdi dir="ltr">2+1</bdi> (<bdi dir="ltr">108</bdi> م²) و<bdi dir="ltr">3+1</bdi> (<bdi dir="ltr">166</bdi> م²).</li>
+            <li><strong>شبكة المسافات الحيوية:</strong> <bdi dir="ltr">4</bdi> دقائق لمول جواهر، <bdi dir="ltr">5</bdi> دقائق لشاطئ كاشوستو، <bdi dir="ltr">7–10</bdi> دقائق لمطار طرابزون الدولي (<bdi dir="ltr">TZX</bdi>)، <bdi dir="ltr">8–10</bdi> دقائق لمول فوروم طرابزون، <bdi dir="ltr">9</bdi> دقائق لمستشفى قانوني، و<bdi dir="ltr">12</bdi> دقيقة لمركز المدينة.</li>
+            <li><strong>المرافق الترفيهية الفندقية:</strong> مسابح داخلية مغطاة، ساونا وغرفة بخار، حمام تركي من الرخام الأبيض، نادي لياقة وكاليستنكس، صالة ألعاب إلكترونية للأطفال، وملاعب كرة قدم وسلة وطائرة، ومواقف مغطاة ومفتوحة وحراسة على مدار الساعة.</li>
+          </ul>
+          <div style="margin-top: var(--space-md); display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+            <button type="button" class="btn btn-primary btn-sm" onclick="filterUnitsByComplex('marine-city')">عرض شقق مارين سيتي</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="prefillInquiryProject('مجمع مارين سيتي (Marine City)')">طلب عرض أسعار مارين سيتي</button>
+          </div>
+        </article>
+
+        <!-- Trabzon Mountain View -->
+        <article class="leaf-panel">
+          <div class="stamp-row" style="margin-bottom: var(--space-sm);">
+            <span class="stamp stamp-green">تقييم 4.7 / 5 (57 تقييم Google)</span>
+            <span class="stamp">خيار دمج A7+A8</span>
+            <span class="stamp stamp-navy">خصم 10%: SALAH26</span>
+          </div>
+          <h3>مجمع طرابزون ماونتن فيو (<bdi dir="ltr">Trabzon Mountain View</bdi>)</h3>
+          <p>مجمع سكني وسياحي فاخر يجمع بين الإطلالة الجبلية الخضراء وساحل البحر الأسود في أجواء صيفية معتدلة (<bdi dir="ltr">22°C – 28°C</bdi>) مناسبة للعائلات العربية والخليجية الباحثة عن الخصوصية والراحة.</p>
+          <ul>
+            <li><strong>وحدات مرنة (<bdi dir="ltr">A7</bdi> وخيار دمج <bdi dir="ltr">A7+A8</bdi>):</strong> شقة <bdi dir="ltr">A7</bdi> بمساحة <bdi dir="ltr">80</bdi> م² (<bdi dir="ltr">1+1</bdi>) في الطابق الأول بتشطيب مطبخ أمريكي بورجوندي لامع وأرضيات باركيه وحمامين بكابينة دش دائرية، مع إمكانية تسليمها مفروشة أو فارغة، أو دمجها مع <bdi dir="ltr">A8</bdi> لتصبح جناحاً عائلياً بمساحة <bdi dir="ltr">160</bdi> م².</li>
+            <li><strong>مرافق الخدمة اليومية:</strong> ميني ماركت ذاتي الخدمة داخل المجمع، جلسات عائلية خارجية، ومناطق ألعاب مخصصة للأطفال.</li>
+            <li><strong>تجربة ضيوف موثقة:</strong> إشراف مباشر من المهندس سهيل وعطية (بالتواصل العربي والإنجليزي والتركي) مع تقييم <bdi dir="ltr">4.7</bdi> نجوم يشيد بالنظافة والضيافة والإطلالة الصباحية.</li>
+            <li><strong>عرض الإقامة والتجربة:</strong> خصم خاص <bdi dir="ltr">10%</bdi> على الإقامة عند الحجز باستخدام الرمز <bdi dir="ltr">SALAH26</bdi> الساري حتى نهاية العام (مباشرة عبر المهندس سهيل: <bdi dir="ltr">+90 536 774 59 92</bdi>).</li>
+          </ul>
+          <div style="margin-top: var(--space-md); display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+            <button type="button" class="btn btn-primary btn-sm" onclick="filterUnitsByComplex('mountain-view')">عرض وحدات ماونتن فيو وA7+A8</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="prefillInquiryProject('مجمع طرابزون ماونتن فيو (كود SALAH26)')">تفعيل استفسار بكود SALAH26</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Schematic Vector Map of Trabzon Coastal Corridor -->
+      <div class="schematic-box">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+          <div>
+            <h3 style="margin-bottom: 2px;">المخطط المكاني لمحور الاستثمار في طرابزون واتصال المطار</h3>
+            <p style="margin: 0; font-size: var(--label-size); color: var(--on-surface-variant);">توزيع النطاقات البلدية وعوائدها الصافية مقارنة بمقر شركة الياقوت (بيليتلي) ومجمعي مارين سيتي وماونتن فيو</p>
+          </div>
+          <span class="stamp mono">TZX: 27–31 رحلة خليجية أسبوعياً</span>
+        </div>
+
+        <svg class="schematic-svg" viewBox="0 0 960 290" role="img" aria-label="مخطط توزيع مناطق طرابزون الاستثمارية وموقع مارين سيتي وماونتن فيو ومطار طرابزون" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sea Backdrop -->
+          <rect x="0" y="0" width="960" height="92" fill="var(--primary)" />
+          <text x="480" y="38" text-anchor="middle" fill="var(--on-primary)" font-family="Noto Naskh Arabic, serif" font-size="18">البحر الأسود — محور الساحل الشمالي (E-70)</text>
+          <text x="480" y="66" text-anchor="middle" fill="var(--title-brass-text)" font-family="IBM Plex Mono, monospace" font-size="12">جدة · الكويت · الدوحة (3–4 ساعات طيران مباشر إلى TZX)</text>
+
+          <!-- Coastal Road E-70 -->
+          <line x1="40" y1="118" x2="920" y2="118" stroke="var(--outline)" stroke-width="3" />
+          <line x1="40" y1="124" x2="920" y2="124" stroke="var(--outline-variant)" stroke-width="1" stroke-dasharray="6 4" />
+
+          <!-- District Nodes (East to West visually in RTL: Yomra on right, Akçaabat on left) -->
+          <!-- 1. Yomra / Kasustu (Marine City) -->
+          <g>
+            <rect x="735" y="138" width="195" height="128" fill="var(--surface-container-low)" stroke="var(--primary)" stroke-width="2" />
+            <rect x="735" y="138" width="195" height="6" fill="var(--outline)" />
+            <text x="832" y="166" text-anchor="middle" fill="var(--primary)" font-family="Noto Naskh Arabic, serif" font-size="15" font-weight="700">يومرا — كاشوستو</text>
+            <text x="832" y="186" text-anchor="middle" fill="var(--secondary)" font-family="Noto Sans Arabic, sans-serif" font-size="12" font-weight="600">مجمع مارين سيتي وتريو</text>
+            <text x="832" y="208" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">العائد الصافي: 5.5% – 7.5%</text>
+            <text x="832" y="228" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">4 د مول جواهر · 5 د الشاطئ</text>
+            <text x="832" y="248" text-anchor="middle" fill="var(--tertiary)" font-family="IBM Plex Mono, monospace" font-size="11">7–10 د للمطار</text>
+          </g>
+
+          <!-- 2. Pelitli / Yalıncak (Al Yakut HQ & TZX) -->
+          <g>
+            <rect x="515" y="138" width="195" height="128" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="2" />
+            <rect x="515" y="138" width="195" height="6" fill="var(--primary)" />
+            <text x="612" y="166" text-anchor="middle" fill="var(--primary)" font-family="Noto Naskh Arabic, serif" font-size="15" font-weight="700">بيليتلي ويالنجاك</text>
+            <text x="612" y="186" text-anchor="middle" fill="var(--primary)" font-family="Noto Sans Arabic, sans-serif" font-size="12" font-weight="600">مقر الياقوت / جواهر + مطار TZX</text>
+            <text x="612" y="208" text-anchor="middle" fill="var(--secondary)" font-family="Noto Sans Arabic, sans-serif" font-size="11" font-weight="600">عائد بيليتلي: 8.0% – 10.0%</text>
+            <text x="612" y="228" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">بجوار جامعة البحر الأسود التقنية</text>
+            <text x="612" y="248" text-anchor="middle" fill="var(--on-surface-variant)" font-family="IBM Plex Mono, monospace" font-size="11">Bahar Sk. No 1A</text>
+          </g>
+
+          <!-- 3. Ortahisar & Boztepe -->
+          <g>
+            <rect x="295" y="138" width="195" height="128" fill="var(--surface-container-low)" stroke="var(--outline)" stroke-width="1.5" />
+            <rect x="295" y="138" width="195" height="6" fill="var(--outline)" />
+            <text x="392" y="166" text-anchor="middle" fill="var(--on-surface)" font-family="Noto Naskh Arabic, serif" font-size="15" font-weight="700">أورتاهيسار وبوزتبه</text>
+            <text x="392" y="186" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="12">المركز الإداري والتلال البانورامية</text>
+            <text x="392" y="208" text-anchor="middle" fill="var(--secondary)" font-family="Noto Sans Arabic, sans-serif" font-size="11">العائد الصافي: 6.0% – 8.5%</text>
+            <text x="392" y="228" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">طلب سكني وتجاري مستقر</text>
+            <text x="392" y="248" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">بنية تحتية ومستشفيات مكتملة</text>
+          </g>
+
+          <!-- 4. Mountain View & Akcaabat / Uzungol Axis -->
+          <g>
+            <rect x="40" y="138" width="230" height="128" fill="var(--surface-container-low)" stroke="var(--secondary)" stroke-width="2" />
+            <rect x="40" y="138" width="230" height="6" fill="var(--secondary)" />
+            <text x="155" y="166" text-anchor="middle" fill="var(--secondary)" font-family="Noto Naskh Arabic, serif" font-size="15" font-weight="700">ماونتن فيو · المرتفعات وأكشابات</text>
+            <text x="155" y="186" text-anchor="middle" fill="var(--on-surface)" font-family="Noto Sans Arabic, sans-serif" font-size="12" font-weight="600">مجمع ماونتن فيو + خيار A7+A8</text>
+            <text x="155" y="208" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">أكشابات 5.0–6.5% · إطلالات جبلية</text>
+            <text x="155" y="228" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">مناخ صيفي معتدل (22°C–28°C)</text>
+            <text x="155" y="248" text-anchor="middle" fill="var(--tertiary)" font-family="IBM Plex Mono, monospace" font-size="11">Google 4.7/5 · كود SALAH26</text>
+          </g>
+
+          <!-- Connector Dots on E-70 -->
+          <circle cx="832" cy="118" r="6" fill="var(--primary)" stroke="var(--outline)" stroke-width="2" />
+          <circle cx="612" cy="118" r="6" fill="var(--primary)" stroke="var(--outline)" stroke-width="2" />
+          <circle cx="392" cy="118" r="6" fill="var(--outline)" stroke="var(--primary)" stroke-width="2" />
+          <circle cx="155" cy="118" r="6" fill="var(--secondary)" stroke="var(--outline)" stroke-width="2" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- SECTION 3: MULTI-FUNNEL MARKETING STRATEGY -->
+    <section id="multi-funnel" class="section-block reveal">
+      <div class="section-head">
+        <span class="section-kicker">03 · الخطة التسويقية الاستراتيجية الشاملة</span>
+        <h2>استراتيجية التسويق متعدد الأقماع: خمسة مسارات متخصصة للمشتري العقاري</h2>
+        <p>لا يُخاطَب مستثمر العائد الإيجاري بالرسالة نفسها الموجهة لعائلة تبحث عن الجنسية أو شقة واسعة مدمجة. اختر قمعك الاستثماري أدناه لتسليط الضوء على الحزمة القانونية والعقارية الأنسب لك ومزامنة توصيات الوحدات.</p>
+      </div>
+
+      <!-- Interactive Funnel Highlight Bar -->
+      <div class="funnel-bar" role="group" aria-label="اختيار القمع التسويقي المستهدف">
+        <button type="button" class="btn btn-outline btn-sm is-active" id="btn-funnel-all" onclick="selectFunnel('all')">عرض الأقماع الخمسة كافة</button>
+        <button type="button" class="btn btn-outline btn-sm" id="btn-funnel-yield" onclick="selectFunnel('yield')">1. مستثمرو العائد ورأس المال</button>
+        <button type="button" class="btn btn-outline btn-sm" id="btn-funnel-cbi" onclick="selectFunnel('cbi')">2. الجنسية والإقامة العقارية</button>
+        <button type="button" class="btn btn-outline btn-sm" id="btn-funnel-holiday" onclick="selectFunnel('holiday')">3. المشترون السياحيون والعطلات</button>
+        <button type="button" class="btn btn-outline btn-sm" id="btn-funnel-str" onclick="selectFunnel('str')">4. مشغلو التأجير (قانون 7464)</button>
+        <button type="button" class="btn btn-outline btn-sm" id="btn-funnel-family" onclick="selectFunnel('family')">5. المساحات العائلية ودمج A7+A8</button>
+      </div>
+
+      <div id="active-funnel-brief" class="cream-panel" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-md);">
+        <div>
+          <div class="figure-label">التوصية الفورية للقمع المحدد</div>
+          <div id="active-funnel-summary" style="font-weight: 600; color: var(--primary);">عرض شامل لكافة الأقماع الخمسة — يمكنك النقر على أي قمع لمزامنة فلتر الشقق ونموذج استشارة الواتساب تلقائياً.</div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" onclick="syncFunnelToInquiry()">تطبيق القمع على نموذج الواتساب</button>
+      </div>
+
+      <!-- Funnel 01: Yield & Capital Investors -->
+      <article id="funnel-card-yield" class="funnel-card">
+        <div class="funnel-header">
+          <div>
+            <span class="funnel-num">القمع 01 · YIELD &amp; CAPITAL APPRECIATION</span>
+            <h3 style="margin-top: var(--space-xs);">مستثمرو العائد الإيجاري والنمو الرأسمالي</h3>
+          </div>
+          <div class="stamp-row">
+            <span class="stamp stamp-green">عائد إجمالي 7% – 10%</span>
+            <span class="stamp">مشتري نقدي: 85.5% من السوق</span>
+          </div>
+        </div>
+        <p>في بيئة اقتصاد كلي تتسم بمعدل تضخم سنوي (<bdi dir="ltr">29.7% – 32.4%</bdi>) وسعر فائدة مركزي مرتفع (<bdi dir="ltr">~37.0%</bdi>)، يمتلك المشتري الأجنبي النقدي ميزة تفاوضية حاسمة أمام الطلب المحلي المعتمد على القروض العقارية (<bdi dir="ltr">16.4% – 17.4%</bdi> فقط من المبيعات). حققت طرابزون نمواً اسمياً في الأسعار بنسبة <bdi dir="ltr">+26.2%</bdi> سنوياً بالليرة، مع حماية نقطة الدخول عبر الإعفاء الضريبي من <bdi dir="ltr">KDV</bdi> (<bdi dir="ltr">10%–20%</bdi>) وفق المادة <bdi dir="ltr">13/i</bdi> عند الاحتفاظ لمدة 3 سنوات.</p>
+
+        <div class="split-balanced">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>المنطقة في طرابزون</th>
+                  <th>الأنماط الأساسية</th>
+                  <th>العائد الصافي</th>
+                  <th>محرك القيمة الأساسي</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>بيليتلي (<bdi dir="ltr">Pelitli</bdi>)</strong></td>
+                  <td><bdi dir="ltr">1+1 / 2+1</bdi> متوسطة</td>
+                  <td class="num-cell" style="color: var(--positive); font-weight: 600;"><bdi dir="ltr">8.0% – 10.0%</bdi></td>
+                  <td>جوار المطار (<bdi dir="ltr">TZX</bdi>) وجامعة <bdi dir="ltr">KTU</bdi></td>
+                </tr>
+                <tr>
+                  <td><strong>أورتاهيسار (<bdi dir="ltr">Ortahisar</bdi>)</strong></td>
+                  <td>شقق عائلية وتجارية</td>
+                  <td class="num-cell"><bdi dir="ltr">6.5% – 8.5%</bdi></td>
+                  <td>البنية المركزية والطلب طويل الأمد</td>
+                </tr>
+                <tr>
+                  <td><strong>بوزتبه (<bdi dir="ltr">Boztepe</bdi>)</strong></td>
+                  <td>وحدات مرتفعة بانورامية</td>
+                  <td class="num-cell"><bdi dir="ltr">6.0% – 7.5%</bdi></td>
+                  <td>إطلالة بحرية وحضرية بانورامية</td>
+                </tr>
+                <tr>
+                  <td><strong>يومرا (<bdi dir="ltr">Yomra</bdi>)</strong></td>
+                  <td>مجمعات فاخرة (مارين سيتي)</td>
+                  <td class="num-cell"><bdi dir="ltr">5.5% – 7.5%</bdi></td>
+                  <td>واجهات بحرية ومرافق <bdi dir="ltr">Site</bdi> متكاملة</td>
+                </tr>
+                <tr>
+                  <td><strong>يالنجاك (<bdi dir="ltr">Yalıncak</bdi>)</strong></td>
+                  <td>أبراج حديثة قيد التوسع</td>
+                  <td class="num-cell"><bdi dir="ltr">6.0% – 7.0%</bdi></td>
+                  <td>قرب الطريق الساحلي <bdi dir="ltr">E-70</bdi> والمستشفيات</td>
+                </tr>
+                <tr>
+                  <td><strong>أكشابات (<bdi dir="ltr">Akçaabat</bdi>)</strong></td>
+                  <td>شقق ساحلية عائلية</td>
+                  <td class="num-cell"><bdi dir="ltr">5.0% – 6.5%</bdi></td>
+                  <td>بيئة هادئة وكورنيش ساحلي واسع</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>معيار المقارنة الإقليمية</th>
+                  <th>طرابزون، تركيا</th>
+                  <th>دبي، الإمارات</th>
+                  <th>الرياض، السعودية</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>رأس مال الدخول (<bdi dir="ltr">1+1</bdi>)</strong></td>
+                  <td class="num-cell" style="color: var(--positive); font-weight: 600;"><bdi dir="ltr">$75k – $100k</bdi></td>
+                  <td class="num-cell"><bdi dir="ltr">$250k – $400k</bdi></td>
+                  <td class="num-cell"><bdi dir="ltr">$200k – $350k</bdi></td>
+                </tr>
+                <tr>
+                  <td><strong>العائد الإيجاري الإجمالي</strong></td>
+                  <td class="num-cell"><bdi dir="ltr">7.0% – 10.0%</bdi></td>
+                  <td class="num-cell"><bdi dir="ltr">6.0% – 9.0%</bdi></td>
+                  <td class="num-cell"><bdi dir="ltr">~5.8%</bdi></td>
+                </tr>
+                <tr>
+                  <td><strong>ربط الجنسية / الإقامة</strong></td>
+                  <td>جنسية كاملة عند <bdi dir="ltr">$400k</bdi></td>
+                  <td>إقامة ذهبية 10 سنوات عند <bdi dir="ltr">~$545k</bdi></td>
+                  <td>تملك فقط دون ربط إقامة</td>
+                </tr>
+                <tr>
+                  <td><strong>رسوم التملك الإلزامية</strong></td>
+                  <td><bdi dir="ltr">4%</bdi> طابو + تثمين</td>
+                  <td><bdi dir="ltr">4%</bdi> دائرة الأراضي</td>
+                  <td>حتى <bdi dir="ltr">5%</bdi> رسوم نقل</td>
+                </tr>
+                <tr>
+                  <td><strong>أفق السيولة الموصى به</strong></td>
+                  <td>احتفاظ متوسط-طويل (5–10 سنوات)</td>
+                  <td>سيولة تخارج دولية عالية</td>
+                  <td>سوق ناشئ بضوابط</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- Funnel 02: Citizenship & Residency -->
+      <article id="funnel-card-cbi" class="funnel-card">
+        <div class="funnel-header">
+          <div>
+            <span class="funnel-num">القمع 02 · CITIZENSHIP &amp; RESIDENCE PERMITS</span>
+            <h3 style="margin-top: var(--space-xs);">باحثو الجنسية التركية والإقامة العقارية</h3>
+          </div>
+          <div class="stamp-row">
+            <span class="stamp stamp-navy">الجنسية: ≥ $400,000</span>
+            <span class="stamp stamp-green">الإقامة: ≥ $200,000</span>
+          </div>
+        </div>
+        <div class="split-balanced">
+          <div>
+            <p>تمنح المادة <bdi dir="ltr">20</bdi> من اللائحة التنفيذية لقانون الجنسية رقم <bdi dir="ltr">5901</bdi> المستثمر الأجنبي وزوجه وأبناءه القاصرين (دون 18 عاماً) أو المعالين حق التقدم للجنسية الاستثنائية عبر شراء عقار واحد أو عدة عقارات مدمجة بقيمة لا تقل عن <bdi dir="ltr">$400,000</bdi> (تُحتسب بسعر البنك المركزي الساعة 11:00 وفق تعديل 1 أكتوبر 2026)، مع وضع إشارة عدم بيع (<bdi dir="ltr">Şerh</bdi>) لمدة 3 سنوات.</p>
+            <ul>
+              <li><strong>استراتيجية المحفظة الهجينة:</strong> شراء شقة سكنية للعائلة في مارين سيتي يومرا (<bdi dir="ltr">$200,000</bdi>) + وحدة عائد مرتفع في بيليتلي أو تريو (<bdi dir="ltr">$200,000</bdi>) لتحقيق حد الجنسية وتوزيع المخاطر.</li>
+              <li><strong>الإقامة العقارية (<bdi dir="ltr">$200,000+</bdi>):</strong> تسري في جميع الولايات بشرط أن يكون العقار سكنياً مخصصاً للسكن ومسجلاً كعنوان إقامة فعلي في دائرة النفوس (<bdi dir="ltr">Nüfus</bdi>).</li>
+              <li><strong>التمييز الضريبي الحرج (قانون 7582):</strong> الجنسية لا تنشئ إقامة ضريبية تلقائياً؛ الإعفاء لمدة 20 سنة على الدخل الأجنبي يخضع لشروط الإقامة الضريبية المستقلة (منع التجاوز لـ 6 أشهر قبل الاستحقاق وفق الضوابط).</li>
+            </ul>
+          </div>
+          <div class="cream-panel">
+            <h4 style="margin-top: 0; color: var(--primary);">القيود الإلزامية لملفات الجنسية 2026</h4>
+            <ul style="margin-bottom: 0;">
+              <li>يجب أن يكون البائع مواطناً تركياً أو شركة تركية (البيع بين أجنبيين لا يؤهل للجنسية).</li>
+              <li>عدم استخدام العقار نفسه مسبقاً من قِبل أجنبي آخر للحصول على الجنسية، وعدم شرائه من قريب تركي من الدرجة الأولى.</li>
+              <li>توفر طابو ارتفاق (<bdi dir="ltr">Kat İrtifakı</bdi>) أو ملكية تامة (<bdi dir="ltr">Kat Mülkiyeti</bdi>)؛ الأراضي الفارغة أو الزراعية أو الحصص المشاعة لا تؤهل.</li>
+              <li>تقرير التثمين من أي شركة مرخصة من <bdi dir="ltr">SPK</bdi> عبر نظام <bdi dir="ltr">Web Tapu</bdi> (تعديل 28 سبتمبر 2026) صالح لمدة أقصاها 12 شهراً.</li>
+              <li>تحويل المبلغ بالكامل عبر بنك تركي إلى البنك المركزي وإصدار وثيقة <bdi dir="ltr">DAB</bdi> قبل نقل الملكية (لا يمكن التراجع عن التحويل بعد التنفيذ).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Funnel 03: Tourism Buyers & Holiday Families -->
+      <article id="funnel-card-holiday" class="funnel-card">
+        <div class="funnel-header">
+          <div>
+            <span class="funnel-num">القمع 03 · TOURISM &amp; HOLIDAY FAMILIES</span>
+            <h3 style="margin-top: var(--space-xs);">المشترون السياحيون وعائلات العطلات الصيفية</h3>
+          </div>
+          <div class="stamp-row">
+            <span class="stamp stamp-green">صيف معتدل 22°C – 28°C</span>
+            <span class="stamp">3–4 ساعات طيران مباشر</span>
+          </div>
+        </div>
+        <div class="split-asymmetric">
+          <div>
+            <p>تشكل طرابزون الوجهة المفضلة للعائلات الأردنية والخليجية الهاربة من حرارة الصيف (<bdi dir="ltr">45°C – 50°C</bdi>)؛ حيث تمتزج الغابات الخضراء وبحيرة أوزونجول والمرتفعات الجبلية ببيئة اجتماعية محافظة وبنية خدمية حلال متكاملة، مدعومة بشبكة طيران مباشر تضم <bdi dir="ltr">27 – 31</bdi> رحلة أسبوعية (فلاي ناس، فلاي أديل، بيغاسوس، الكويتية، والقطرية).</p>
+            <p style="margin-bottom: 0;">بفضل جودة البنية التحتية في <strong>ماونتن فيو</strong> و<strong>مارين سيتي</strong>، تحظى العائلات بمسابح ومناطق ألعاب آمنة ومرافق ترفيهية مع انخفاض ملموس في كلفة الإقامة والغذاء مقارنة بإسطنبول وأوروبا.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>بند المعيشة الشهري في طرابزون 2026</th>
+                  <th>متوسط التكلفة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ميزانية فرد واحد (بدون إيجار)</td>
+                  <td class="num-cell"><bdi dir="ltr">$350 – $600</bdi></td>
+                </tr>
+                <tr>
+                  <td>ميزانية فرد واحد (شاملة الإيجار)</td>
+                  <td class="num-cell"><bdi dir="ltr">$600 – $1,100</bdi></td>
+                </tr>
+                <tr>
+                  <td>ميزانية عائلة من 4 أفراد</td>
+                  <td class="num-cell"><bdi dir="ltr">$1,500 – $3,000</bdi></td>
+                </tr>
+                <tr>
+                  <td>إيجار شقة <bdi dir="ltr">1+1</bdi> حديثة في المركز</td>
+                  <td class="num-cell"><bdi dir="ltr">$400 – $700</bdi></td>
+                </tr>
+                <tr>
+                  <td>الفواتير (كهرباء، ماء، غاز) + فايبر</td>
+                  <td class="num-cell"><bdi dir="ltr">$82 – $165</bdi></td>
+                </tr>
+                <tr>
+                  <td>وجبة مطعم محلي / متوسط</td>
+                  <td class="num-cell"><bdi dir="ltr">$5–$10 / $15–$30</bdi></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- Funnel 04: Short-Term Rental Operators (Law 7464) -->
+      <article id="funnel-card-str" class="funnel-card">
+        <div class="funnel-header">
+          <div>
+            <span class="funnel-num">القمع 04 · SHORT-TERM RENTAL COMPLIANCE</span>
+            <h3 style="margin-top: var(--space-xs);">مشغلو التأجير السياحي قصير الأجل وفق القانون رقم 7464</h3>
+          </div>
+          <div class="stamp-row">
+            <span class="stamp stamp-warn">حد العقود: ≤ 100 يوم</span>
+            <span class="stamp stamp-navy">استثناء الريزيدنس الفاخر والفلل</span>
+          </div>
+        </div>
+        <div class="split-balanced">
+          <div>
+            <p>أنهى القانون رقم <bdi dir="ltr">7464</bdi> (الساري منذ يناير 2024) عصر التأجير العشوائي عبر منصات الحجز. أي تأجير لعقار سكني لمدة <bdi dir="ltr">100</bdi> يوم أو أقل يُصنف نشاطاً سياحياً يتطلب ترخيصاً مسبقاً من وزارة الثقافة والسياحة:</p>
+            <ul>
+              <li><strong>المباني السكنية العادية:</strong> تشترط موافقة <strong>100% من جميع ملاك الشقق</strong> في البناء، مع سقف <bdi dir="ltr">25%</bdi> من الوحدات للمالك الواحد في المباني التي تضم أكثر من 3 شقق (أكثر من 5 شقق يتطلب رخصة عمل).</li>
+              <li><strong>الالتزامات التشغيلية:</strong> تعليق لوحة الوزارة على المدخل، الإبلاغ الفوري لهويات النزلاء عبر نظام <bdi dir="ltr">GIYKIMBIL</bdi> (قانون 1774)، ومنع المستأجر من التأجير من الباطن.</li>
+              <li><strong>الحل الذكي من الياقوت:</strong> استهداف الفيلات المستقلة، أو مجمعات الريزيدنس عالية الجودة المزودة باستقبال وأمن 24/7 وتنظيف يومي وإدارة تسمح بالتأجير السياحي (مستثناة من شرط الإجماع)، أو إبرام عقود طويلة الأمد (<bdi dir="ltr">&gt; 100</bdi> يوم) وفق قانون الالتزامات <bdi dir="ltr">6098</bdi>.</li>
+            </ul>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>المخالفة بموجب القانون 7464</th>
+                  <th>الغرامة الإدارية</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>التأجير السياحي دون تصريح (أول ضبط + مهلة 15 يوماً)</td>
+                  <td class="num-cell" style="color: var(--error); font-weight: 600;"><bdi dir="ltr">100,000 TRY</bdi></td>
+                </tr>
+                <tr>
+                  <td>الاستمرار بعد مهلة الـ 15 يوماً الأولى</td>
+                  <td class="num-cell" style="color: var(--error); font-weight: 600;"><bdi dir="ltr">500,000 TRY</bdi></td>
+                </tr>
+                <tr>
+                  <td>الاستمرار المتكرر أو التأجير غير المرخص &gt;4 مرات سنوياً</td>
+                  <td class="num-cell" style="color: var(--error); font-weight: 700;"><bdi dir="ltr">1,000,000 TRY</bdi></td>
+                </tr>
+                <tr>
+                  <td>التأجير من الباطن أو الوساطة غير المرخصة (لكل عقد)</td>
+                  <td class="num-cell"><bdi dir="ltr">100,000 TRY</bdi></td>
+                </tr>
+                <tr>
+                  <td>عدم تعليق لوحة الوزارة / إعلان مضلل</td>
+                  <td class="num-cell"><bdi dir="ltr">100,000 TRY</bdi></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- Funnel 05: Large Family Spaces & A7+A8 Merge -->
+      <article id="funnel-card-family" class="funnel-card">
+        <div class="funnel-header">
+          <div>
+            <span class="funnel-num">القمع 05 · EXPANSIVE FAMILY LIVING &amp; MERGING</span>
+            <h3 style="margin-top: var(--space-xs);">الباحثون عن مساحات عائلية واسعة وخيارات دمج الشقق (<bdi dir="ltr">A7+A8</bdi> و<bdi dir="ltr">4+1</bdi>)</h3>
+          </div>
+          <div class="stamp-row">
+            <span class="stamp stamp-navy">A7+A8: 160 م² (شقتان في واحدة)</span>
+            <span class="stamp stamp-green">مارين سيتي 4+1: 253 م²</span>
+          </div>
+        </div>
+        <p>تواجه العائلات الكبيرة تحدي ضيق المساحات في الشقق التقليدية. تقدم الياقوت مسارين عمليين: جناح <strong><bdi dir="ltr">4+1</bdi> في مارين سيتي (<bdi dir="ltr">253</bdi> م²)</strong> بتصميم «شقة داخل شقة» يضم جناحاً مستقلاً بغرفتين وحمام مع غرفة غسيل وبلكونة بحرية، أو <strong>خيار دمج شقتي <bdi dir="ltr">A7 + A8</bdi> في طرابزون ماونتن فيو</strong> لإنشاء مسكن عائلي بمساحة <bdi dir="ltr">160</bdi> م² مع خصوصية تامة بين جناح الضيوف والمجلس وجناح العائلة.</p>
+
+        <!-- Interactive Floorplan Visualizer for A7 vs A7+A8 -->
+        <div class="schematic-box">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+            <div>
+              <h4 style="margin: 0 0 2px; color: var(--primary);">مقارن المخطط الهندسي التفاعلي: وحدة A7 المفردة مقابل الدمج العائلي A7+A8</h4>
+              <div id="floorplan-caption" style="font-size: var(--label-size); color: var(--on-surface-variant);">الوضع الحالي: عرض مقارنة الدمج الكامل (<bdi dir="ltr">A7 + A8</bdi>) بمساحة <bdi dir="ltr">160</bdi> م² و4 حمامات</div>
+            </div>
+            <div style="display: flex; gap: var(--space-sm);">
+              <button type="button" class="btn btn-outline btn-sm" id="fp-btn-single" onclick="setFloorplanMode('single')">وحدة A7 مفردة (80 م²)</button>
+              <button type="button" class="btn btn-outline btn-sm is-active" id="fp-btn-merged" onclick="setFloorplanMode('merged')">دمج A7 + A8 معاً (160 م²)</button>
+            </div>
+          </div>
+
+          <svg id="floorplan-svg" class="schematic-svg" viewBox="0 0 880 260" role="img" aria-label="مخطط تفاعلي يوضح خيار دمج شقتي A7 وA8" xmlns="http://www.w3.org/2000/svg">
+            <!-- Balcony Panoramic Top Strip -->
+            <rect x="40" y="18" width="800" height="44" fill="var(--secondary-container)" stroke="var(--secondary)" stroke-width="1.5" />
+            <text x="440" y="45" text-anchor="middle" fill="var(--secondary)" font-family="Noto Sans Arabic, sans-serif" font-size="13" font-weight="600">الشرفة البانورامية المطلة على البحر والجبال (تمتد بطول الجناحين في خيار الدمج)</text>
+
+            <!-- Unit A7 (Right Wing) -->
+            <rect x="445" y="62" width="395" height="175" fill="var(--surface-container-low)" stroke="var(--primary)" stroke-width="2" />
+            <text x="642" y="92" text-anchor="middle" fill="var(--primary)" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700">الجناح A7 (80 م² · الطابق الأول)</text>
+            <rect x="462" y="106" width="175" height="58" fill="var(--background)" stroke="var(--outline-variant)" stroke-width="1" />
+            <text x="549" y="132" text-anchor="middle" fill="var(--on-surface)" font-family="Noto Sans Arabic, sans-serif" font-size="12" font-weight="600">صالة معيشة (أرائك بورجوندي)</text>
+            <text x="549" y="150" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">طاولة طعام بيضاء وإطلالة شاملة</text>
+
+            <rect x="648" y="106" width="175" height="58" fill="var(--tertiary-container)" stroke="var(--outline)" stroke-width="1" />
+            <text x="735" y="132" text-anchor="middle" fill="var(--tertiary)" font-family="Noto Sans Arabic, sans-serif" font-size="12" font-weight="600">مطبخ أمريكي بورجوندي لامع</text>
+            <text x="735" y="150" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">ثلاجة، غسالة، فرن، ميكروويف</text>
+
+            <rect x="462" y="172" width="175" height="50" fill="var(--background)" stroke="var(--outline-variant)" stroke-width="1" />
+            <text x="549" y="201" text-anchor="middle" fill="var(--on-surface)" font-family="Noto Sans Arabic, sans-serif" font-size="12">غرفة نوم + 2 حمام (دش زجاجي)</text>
+
+            <rect x="648" y="172" width="175" height="50" fill="var(--background)" stroke="var(--outline-variant)" stroke-width="1" />
+            <text x="735" y="201" text-anchor="middle" fill="var(--on-surface)" font-family="Noto Sans Arabic, sans-serif" font-size="12">مدخل باب #7 + إنتركوم وطفاية</text>
+
+            <!-- Unit A8 (Left Wing - dims when single mode active) -->
+            <g id="fp-a8-wing">
+              <rect x="40" y="62" width="395" height="175" fill="var(--surface-container-low)" stroke="var(--primary)" stroke-width="2" />
+              <text x="237" y="92" text-anchor="middle" fill="var(--primary)" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700">الجناح A8 المدمج (80 م² إضافية)</text>
+              <rect x="57" y="106" width="175" height="58" fill="var(--background)" stroke="var(--outline-variant)" stroke-width="1" />
+              <text x="144" y="132" text-anchor="middle" fill="var(--on-surface)" font-family="Noto Sans Arabic, sans-serif" font-size="12" font-weight="600">مجلس ضيوف / صالة عائلية ثانية</text>
+              <text x="144" y="150" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">خصوصية كاملة للعائلات الكبيرة</text>
+
+              <rect x="243" y="106" width="175" height="58" fill="var(--background)" stroke="var(--outline-variant)" stroke-width="1" />
+              <text x="330" y="132" text-anchor="middle" fill="var(--on-surface)" font-family="Noto Sans Arabic, sans-serif" font-size="12" font-weight="600">جناح نوم ماستر + غرفتي نوم</text>
+              <text x="330" y="150" text-anchor="middle" fill="var(--on-surface-variant)" font-family="Noto Sans Arabic, sans-serif" font-size="11">إمكانية التعديل إلى 3+1 عائلي</text>
+
+              <rect x="57" y="172" width="361" height="50" fill="var(--background)" stroke="var(--outline-variant)" stroke-width="1" />
+              <text x="237" y="201" text-anchor="middle" fill="var(--secondary)" font-family="Noto Sans Arabic, sans-serif" font-size="12" font-weight="600">حمامان إضافيان (المجموع 4 حمامات) + مرونة سند مدمج للإقامة أو الاستثمار</text>
+            </g>
+
+            <!-- Connecting Passageway Indicator -->
+            <g id="fp-bridge">
+              <rect x="424" y="114" width="32" height="44" fill="var(--outline)" />
+              <text x="440" y="140" text-anchor="middle" fill="var(--primary)" font-family="Noto Sans Arabic, sans-serif" font-size="11" font-weight="700">ربط</text>
+            </g>
+          </svg>
+        </div>
+      </article>
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE UNIT SPECIFICATION CARDS -->
+    <section id="units-explorer" class="section-block reveal">
+      <div class="section-head">
+        <span class="section-kicker">04 · بطاقات المواصفات التفاعلية للوحدات</span>
+        <h2>دليل الشقق المتاحة: قارن المساحات، التجهيز، وملاءمة كل وحدة لأقماع الشراء</h2>
+        <p>يمكنك تصفية الوحدات حسب المجمع، نمط الغرف، أو القمع المستهدف، ثم حفظ الوحدات المفضلة أو تمرير سعرها مباشرة إلى حاسبة العائد الاستثماري.</p>
+      </div>
+
+      <!-- Filter Toolbar -->
+      <div class="filter-toolbar" role="region" aria-label="تصفية الشقق المتاحة">
+        <div class="field-group">
+          <label for="filter-complex">المجمع / المنطقة</label>
+          <select id="filter-complex" class="field-control" onchange="applyUnitFilters()">
+            <option value="all">جميع المشاريع والمناطق</option>
+            <option value="marine-city">مارين سيتي وتريو (يومرا - كاشوستو)</option>
+            <option value="mountain-view">طرابزون ماونتن فيو (A7 / A7+A8)</option>
+            <option value="yomra-port">خيارات يومرا التكميلية (سانجاك / نامق كمال)</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="filter-layout">نمط الشقة والمساحة</label>
+          <select id="filter-layout" class="field-control" onchange="applyUnitFilters()">
+            <option value="all">جميع الأنماط</option>
+            <option value="1+1">1+1 (80 م²)</option>
+            <option value="2+1">2+1 (108–110 م²)</option>
+            <option value="3+1">3+1 (155–170 م²)</option>
+            <option value="4+1">4+1 (190–253 م²)</option>
+            <option value="merged">دمج شقتين A7+A8 (160 م²)</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="filter-funnel">القمع التسويقي المناسب</label>
+          <select id="filter-funnel" class="field-control" onchange="applyUnitFilters()">
+            <option value="all">جميع الأقماع الخمسة</option>
+            <option value="yield">1. مستثمرو العائد ورأس المال</option>
+            <option value="cbi">2. الجنسية ($400K) والإقامة ($200K)</option>
+            <option value="holiday">3. السياحة وعائلات العطلات</option>
+            <option value="str">4. التأجير السياحي (قانون 7464)</option>
+            <option value="family">5. المساحات العائلية والدمج</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="filter-currency">عرض السعر</label>
+          <select id="filter-currency" class="field-control" onchange="applyUnitFilters()">
+            <option value="TRY">الليرة التركية والدولار التقديري</option>
+            <option value="USD">الدولار الأمريكي (USD) أولاً</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="units-count-note" style="font-size: var(--label-size); color: var(--on-surface-variant); font-weight: 600;"></div>
+      <div id="units-grid" class="card-grid"></div>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE ROI & ACQUISITION CALCULATOR -->
+    <section id="roi-calculator" class="section-block reveal">
+      <div class="section-head">
+        <span class="section-kicker">05 · النمذجة المالية والضريبية</span>
+        <h2>حاسبة العائد الاستثماري، تكاليف الطابو، وإعفاء ضريبة القيمة المضافة (<bdi dir="ltr">KDV</bdi>)</h2>
+        <p>اختبر صافي العائد المتوقع ومصاريف التسجيل الفعلية وفقاً لإطار الضرائب التركي لعام 2026، وتحقق تلقائياً من أهلية المحفظة للإقامة العقارية أو الجنسية التركية.</p>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Calculator Inputs -->
+        <div class="leaf-panel" style="display: grid; gap: var(--space-md);">
+          <h3>مدخلات المحاكاة الاستثمارية</h3>
+
+          <div class="field-group">
+            <label for="calc-budget-number">قيمة العقار أو المحفظة (<bdi dir="ltr">USD</bdi>)</label>
+            <div class="slider-pair">
+              <input type="range" id="calc-budget-slider" min="75000" max="650000" step="5000" value="200000" oninput="syncBudgetFromSlider(this.value)">
+              <input type="number" id="calc-budget-number" class="field-control mono" min="50000" max="2000000" step="1000" value="200000" oninput="syncBudgetFromNumber(this.value)">
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="calc-district">المجمع / المنطقة المرجعية (صافي العائد المستند للمصادر)</label>
+            <select id="calc-district" class="field-control" onchange="updateCalculator()">
+              <option value="6.5">مارين سيتي — يومرا كاشوستو (متوسط 6.5% صافي)</option>
+              <option value="7.5" selected>طرابزون ماونتن فيو / أورتاهيسار (متوسط 7.5% صافي)</option>
+              <option value="9.0">بيليتلي قرب المطار والجامعة (متوسط 9.0% صافي)</option>
+              <option value="6.5">يالنجاك الساحلية (متوسط 6.5% صافي)</option>
+              <option value="5.75">أكشابات العائلية (متوسط 5.75% صافي)</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="calc-rental-mode">نموذج التشغيل الإيجاري</label>
+            <select id="calc-rental-mode" class="field-control" onchange="updateCalculator()">
+              <option value="long">تأجير طويل الأمد (&gt; 100 يوم) — قانون الالتزامات 6098</option>
+              <option value="short">تأجير سياحي مرخص (≤ 100 يوم) — قانون 7464 (+1.2% علاوة موسمية)</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="calc-vat-mode">وضعية ضريبة القيمة المضافة (<bdi dir="ltr">KDV</bdi> للمشاريع الجديدة)</label>
+            <select id="calc-vat-mode" class="field-control" onchange="updateCalculator()">
+              <option value="exempt" selected>مؤهل للإعفاء الضريبي (0% KDV) — غير مقيم + تحويل 50% خارجي (المادة 13/i)</option>
+              <option value="std10">خاضع للضريبة المخفضة (10% KDV)</option>
+              <option value="std20">خاضع للضريبة القياسية (20% KDV للمساحات الفاخرة/التجارية)</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="calc-tapu-mode">توزيع رسوم الطابو (<bdi dir="ltr">Tapu Harcı</bdi>)</label>
+            <select id="calc-tapu-mode" class="field-control" onchange="updateCalculator()">
+              <option value="0.04" selected>الممارسة السوقية (المشتري يتحمل كامل 4%)</option>
+              <option value="0.02">التقسيم القانوني (2% المشتري / 2% البائع)</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="calc-years">أفق الاحتفاظ الاستثماري (بالسنوات)</label>
+            <select id="calc-years" class="field-control" onchange="updateCalculator()">
+              <option value="3">3 سنوات (الحد الأدنى للجنسية وإعفاء KDV)</option>
+              <option value="5" selected>5 سنوات (أفق متوازن مع إعفاء أرباح رأس المال)</option>
+              <option value="10">10 سنوات (أفق الحفاظ على رأس المال الموصى به)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Calculator Outputs & Chart -->
+        <div style="display: grid; gap: var(--space-lg);">
+          <div class="calc-results-grid">
+            <div class="figure-card">
+              <div class="figure-label">صافي الدخل الإيجاري السنوي</div>
+              <div class="figure-value" id="out-annual-net">$0</div>
+              <div class="figure-delta positive" id="out-net-yield">صافي العائد: 0%</div>
+            </div>
+            <div class="figure-card">
+              <div class="figure-label">إجمالي التكاليف التكميلية</div>
+              <div class="figure-value" id="out-acq-costs">$0</div>
+              <div class="figure-delta" id="out-acq-breakdown">طابو + تثمين $550 + تأمين DASK</div>
+            </div>
+            <div class="figure-card">
+              <div class="figure-label">الوفر الضريبي (المادة 13/i)</div>
+              <div class="figure-value" id="out-vat-saved">$0</div>
+              <div class="figure-delta positive" id="out-vat-note">اعتماداً على شريحة 10% مرجعية</div>
+            </div>
+            <div class="figure-card">
+              <div class="figure-label">صافي العائد التراكمي خلال المدة</div>
+              <div class="figure-value" id="out-cumulative">$0</div>
+              <div class="figure-delta" id="out-years-label">تراكمي 5 سنوات دون احتساب نمو الأصل</div>
+            </div>
+          </div>
+
+          <!-- Eligibility Badges -->
+          <div class="cream-panel" style="display: grid; gap: var(--space-sm);">
+            <div class="figure-label">حالة الأهلية القانونية التلقائية للمبلغ المدخل</div>
+            <div id="calc-eligibility-badges" class="stamp-row"></div>
+            <p id="calc-strategy-note" style="margin: 0; font-size: 0.9375rem; color: var(--on-surface-variant);"></p>
+          </div>
+
+          <!-- Chart.js Comparative Chart -->
+          <div class="chart-container" style="min-height: 320px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--space-sm);">
+              <h3 style="margin: 0;">مقارنة العائد التراكمي لنفس رأس المال: طرابزون مقابل دبي والرياض</h3>
+              <span class="mono" style="font-size: var(--label-size); color: var(--on-surface-variant);">USD</span>
+            </div>
+            <div style="position: relative; height: 255px;">
+              <canvas id="roiChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: 2026 LEGAL DUE DILIGENCE & TAXES -->
+    <section id="legal-2026" class="section-block reveal">
+      <div class="section-head">
+        <span class="section-kicker">06 · الحوكمة القانونية ومستجدات 2026</span>
+        <h2>الضوابط الإلزامية لتأمين الطابو وتكاليف التملك في تركيا لعام 2026</h2>
+        <p>إلغاء شرط المعاملة بالمثل فتح السوق لمواطني 183 دولة، لكن تملك الأجانب يخضع لتسلسل قانوني صارم (بحد أقصى 30 هكتاراً للفرد و10% من مساحة الأراضي الخاصة في أي منطقة).</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>بند التكلفة / الرسوم</th>
+              <th>النسبة أو القيمة المطبقة</th>
+              <th>التفاصيل والضوابط القانونية لعام 2026</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>رسوم نقل الملكية (<bdi dir="ltr">Tapu Harcı</bdi>)</strong></td>
+              <td class="num-cell"><bdi dir="ltr">4%</bdi> من القيمة المصرحة</td>
+              <td>قانونياً <bdi dir="ltr">2%</bdi> على البائع و<bdi dir="ltr">2%</bdi> على المشتري، وعرفياً يتحملها المشتري. التصريح بقيمة أقل من الحقيقة يعرض لغرامات مشددة في 2026.</td>
+            </tr>
+            <tr>
+              <td><strong>ضريبة القيمة المضافة (<bdi dir="ltr">KDV</bdi>)</strong></td>
+              <td class="num-cell"><bdi dir="ltr">1% – 20%</bdi> (أو <bdi dir="ltr">0%</bdi> إعفاء)</td>
+              <td>إعفاء كامل (<bdi dir="ltr">KDV İstisnası</bdi>) على التسليم الأول من المطور لغير المقيمين آخر 6 أشهر، بشرط تحويل <bdi dir="ltr">≥ 50%</bdi> من الخارج والاحتفاظ 3 سنوات (قانون 7394).</td>
+            </tr>
+            <tr>
+              <td><strong>تقرير التثمين العقاري (<bdi dir="ltr">Ekspertiz</bdi>)</strong></td>
+              <td class="num-cell"><bdi dir="ltr">$300 – $800</bdi></td>
+              <td>إلزامي لجميع المشترين الأجانب عبر شركة مرخصة من <bdi dir="ltr">SPK</bdi>. منذ 28 سبتمبر 2026 عبر <bdi dir="ltr">Web Tapu</bdi> لمحاربة التضخم الوهمي للأسعار.</td>
+            </tr>
+            <tr>
+              <td><strong>ضريبة العقار السنوية (<bdi dir="ltr">Emlak Vergisi</bdi>)</strong></td>
+              <td class="num-cell"><bdi dir="ltr">0.1% – 0.2%</bdi> سنوياً</td>
+              <td>تتضاعف في البلديات الكبرى مثل طرابزون، مع تطبيق سقف للزيادات السنوية لعام 2026 بموجب القانون رقم <bdi dir="ltr">7566</bdi>.</td>
+            </tr>
+            <tr>
+              <td><strong>تأمين الزلازل الإلزامي (<bdi dir="ltr">DASK</bdi>)</strong></td>
+              <td class="num-cell">حسب المساحة والمنطقة</td>
+              <td>وثيقة إلزامية لا يتم نقل الملكية في الطابو دون سريانها على الوحدة المحددة.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display: grid; gap: var(--space-sm);">
+        <details class="legal-drawer" open>
+          <summary>
+            <span>نظام الدفع العقاري الآمن (<bdi dir="ltr">Güvenli Ödeme Sistemi</bdi>) — تحديث 1 أكتوبر 2026</span>
+            <span class="stamp">الجريدة الرسمية 33387</span>
+          </summary>
+          <p style="margin: var(--space-sm) 0 0;">بموجب تعديل الجريدة الرسمية رقم <bdi dir="ltr">33387</bdi> بتاريخ 1 أكتوبر 2026، أصبح نظام الدفع الآمن بنظام الضمان البنكي (<bdi dir="ltr">Escrow</bdi>) إلزامياً اعتباراً من <strong>1 ديسمبر 2026</strong> (لُغي الموعد السابق في يوليو 2026)، حيث تبقى الأموال محجوزة بنكياً وتُصرف للبائع لحظة تسجيل الطابو باسم المشتري حصراً.</p>
+        </details>
+
+        <details class="legal-drawer">
+          <summary>
+            <span>فحص الإذن العسكري وخطر المباني بدون رخصة سكن (<bdi dir="ltr">İskânsız</bdi>)</span>
+            <span class="stamp stamp-warn">فحص مسبق إلزامي</span>
+          </summary>
+          <p style="margin: var(--space-sm) 0 0;">يُحظر على الأجانب التملك داخل المناطق الأمنية العسكرية (<bdi dir="ltr">Askeri Güvenlik Bölgesi</bdi>) وتتحقق دائرة الطابو رقمياً من الإحداثيات قبل الإفراغ. كما يجب تجنب العقارات التي تفتقر لرخصة السكن (<bdi dir="ltr">İskân / Yapı Kullanma İzni</bdi>) لأنها تبقى على ارتفاق مؤقت (<bdi dir="ltr">Kat İrtifakı</bdi>) وتواجه فواتير خدمات تجارية مرتفعة وصعوبة في الرهن وإعادة البيع.</p>
+        </details>
+
+        <details class="legal-drawer">
+          <summary>
+            <span>الشراء على الخارطة (<bdi dir="ltr">Maket</bdi>) وحدود قانون التحول الحضري 6306</span>
+            <span class="stamp">الاعتماد على العقد والضمانات</span>
+          </summary>
+          <p style="margin: var(--space-sm) 0 0;">قانون <bdi dir="ltr">6306</bdi> لا ينظم مسؤولية المطور في البيوع العادية على الخارطة، بل يختص بإعادة بناء المباني الخطرة ويحمي الملاك داخل عقود التجديد عبر منع حجز دائني المطور للأرض (مادة 6/10) وربط بيع وحدات المطور بتقدم البناء المعتمد (مادة 6/13). لذا يعتمد مشتري الخارطة على العقد الموثق لدى الكاتب بالعدل والإشارات المسجلة على الطابو.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 7: DIRECT WHATSAPP INQUIRY BUILDER & SAVED SHORTLIST -->
+    <section id="whatsapp-dossier" class="section-block reveal">
+      <div class="section-head">
+        <span class="section-kicker">07 · قناة الاستشارة المباشرة وحفظ الملف</span>
+        <h2>تجهيز ملف الاستشارة وإرسال الطلب المباشر عبر واتساب</h2>
+        <p>خصص بياناتك الاستثمارية أدناه لتوليد رسالة واتساب منظمة وموجهة مباشرة إلى إدارة شركة الياقوت العقارية (جواهر — طرابزون) متضمنة حساباتك والوحدات المحفوظة.</p>
+      </div>
+
+      <!-- Saved Shortlist Bar -->
+      <div class="cream-panel" style="display: grid; gap: var(--space-sm);">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+          <div class="figure-label" style="margin: 0;">الوحدات المحفوظة في قائمتك (<span id="shortlist-count">0</span>)</div>
+          <div style="display: flex; gap: var(--space-sm);">
+            <button type="button" class="btn btn-outline btn-sm" onclick="downloadInvestmentSummary()">
+              <i data-lucide="download" aria-hidden="true" width="15" height="15"></i>
+              <span>تصدير ملخص الاستثمار (TXT)</span>
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" id="reset-state-btn" onclick="handleResetPreferences(this)">إعادة ضبط التفضيلات</button>
+          </div>
+        </div>
+        <div id="shortlist-container" class="shortlist-pill-row">
+          <span style="color: var(--on-surface-variant); font-size: var(--label-size);">لم تقم بحفظ أي شقة بعد — انقر «حفظ في المفضلة» على أي بطاقة عقار أعلاه لإضافتها إلى ملفك.</span>
+        </div>
+      </div>
+
+      <div class="split-balanced">
+        <!-- Form Inputs -->
+        <div class="leaf-panel" style="display: grid; gap: var(--space-md);">
+          <h3>بيانات المستثمر والقمع المستهدف</h3>
+
+          <div class="field-group">
+            <label for="wa-name">الاسم الكامل للمستثمر</label>
+            <input type="text" id="wa-name" class="field-control" placeholder="أدخل اسمك الكامل" oninput="updateWhatsAppPreview()">
+          </div>
+
+          <div class="field-group">
+            <label for="wa-country">بلد الإقامة ورقم التواصل</label>
+            <input type="text" id="wa-country" class="field-control" placeholder="مثال: الأردن — عمّان / +962 79..." oninput="updateWhatsAppPreview()">
+          </div>
+
+          <div class="field-group">
+            <label for="wa-funnel">القمع الاستثماري الرئيسي</label>
+            <select id="wa-funnel" class="field-control" onchange="updateWhatsAppPreview()">
+              <option value="مستثمرو العائد ورأس المال (7%–10% + إعفاء KDV)">1. مستثمرو العائد ورأس المال</option>
+              <option value="الجنسية التركية ($400K) أو الإقامة العقارية ($200K)">2. باحثو الجنسية التركية والإقامة</option>
+              <option value="الشراء السياحي والعائلي (العطلات في طرابزون)">3. المشترون السياحيون وعائلات العطلات</option>
+              <option value="التأجير السياحي قصير الأجل المتوافق مع قانون 7464">4. مشغلو التأجير السياحي (قانون 7464)</option>
+              <option value="المساحات العائلية الواسعة وخيار دمج A7+A8">5. المساحات العائلية ودمج الشقق A7+A8</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="wa-project">المشروع أو الوحدة المفضلة</label>
+            <select id="wa-project" class="field-control" onchange="updateWhatsAppPreview()">
+              <option value="مجمع مارين سيتي (Marine City) — يومرا كاشوستو">مجمع مارين سيتي (Marine City) — يومرا</option>
+              <option value="مارين سيتي تريو (2+1 108م² أو 3+1 166م²)">مارين سيتي تريو — المرحلة الثانية</option>
+              <option value="مارين سيتي جناح 4+1 الفاخر (253 م²)">مارين سيتي جناح 4+1 (253 م²)</option>
+              <option value="مجمع طرابزون ماونتن فيو (كود SALAH26)">مجمع طرابزون ماونتن فيو (خصم 10% SALAH26)</option>
+              <option value="دمج شقتي A7 + A8 في ماونتن فيو (160 م²)">خيار الدمج العائلي A7 + A8 (160 م²)</option>
+              <option value="محفظة هجينة للجنسية ($400,000)">محفظة هجينة للجنسية التركية ($400,000)</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="wa-notes">ملاحظات أو أسئلة قانونية محددة</label>
+            <textarea id="wa-notes" class="field-control" rows="3" placeholder="مثال: أرغب بمعرفة تفاصيل التوكيل الرسمي من عمّان وموعد زيارة ميدانية..." oninput="updateWhatsAppPreview()"></textarea>
+          </div>
+
+          <button type="button" class="btn btn-primary" onclick="submitInquiryDossier()">
+            <i data-lucide="check-circle-2" aria-hidden="true" width="18" height="18"></i>
+            <span>حفظ وتجهيز ملف الاستشارة</span>
+          </button>
+          <div id="wa-form-status" class="status-banner" role="status" aria-live="polite"></div>
+        </div>
+
+        <!-- Live WhatsApp Preview & Target Numbers -->
+        <div class="leaf-panel" style="display: grid; gap: var(--space-md);">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+            <h3 style="margin: 0;">معاينة رسالة واتساب الجاهزة للإرسال</h3>
+            <span id="wa-target-badge" class="stamp stamp-green mono">+90 552 715 6125</span>
+          </div>
+
+          <div id="wa-preview" class="wa-preview-box" aria-live="polite"></div>
+
+          <div class="cream-panel" style="display: grid; gap: var(--space-xs);">
+            <div class="figure-label" style="margin: 0;">أرقام الواتساب المباشرة المعتمدة للإرسال:</div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); font-size: 0.9375rem;">
+              <span><strong>إدارة جواهر / الياقوت (قاسم):</strong> <bdi dir="ltr" class="mono">+90 552 715 6125</bdi></span>
+              <span><strong>مبيعات مارين سيتي:</strong> <bdi dir="ltr" class="mono">+90 554 141 2515</bdi></span>
+              <span><strong>ماونتن فيو (المهندس سهيل):</strong> <bdi dir="ltr" class="mono">+90 536 774 59 92</bdi></span>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+            <button type="button" class="btn btn-brass" onclick="copyWhatsAppMessage()">
+              <i data-lucide="copy" aria-hidden="true" width="18" height="18"></i>
+              <span>نسخ رسالة واتساب كاملة</span>
+            </button>
+            <button type="button" class="btn btn-outline" onclick="copyTargetWhatsAppNumber()">
+              <span>نسخ رقم الواتساب المستهدف</span>
+            </button>
+          </div>
+          <div id="wa-copy-status" class="status-banner success" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong style="color: var(--on-surface);">شركة الياقوت العقارية — جواهر (<bdi dir="ltr">Al Yakut / Cevahir Real Estate</bdi>)</strong>
+        <p style="margin: var(--space-xs) 0;">العنوان: <bdi dir="ltr">Pelitli, Bahar Sk. no 1A, 61000 Ortahisar, Trabzon, Turkey</bdi> · الهاتف المباشر: <bdi dir="ltr">+90 552 715 6125</bdi> · البريد: <bdi dir="ltr">jwahrcevahir23@gmail.com</bdi></p>
+        <p style="margin: 0;">تنويه قانوني: المحتوى المقدم لأغراض التحليل الاستثماري والإرشاد العام لعام 2026 ولا يغني عن الاستشارة القانونية الفردية وفحص الطابو قبل تحويل أي مبالغ مالية.</p>
+      </div>
+      <div>
+        <strong style="color: var(--on-surface);">المصادر والمرجعيات المعتمدة</strong>
+        <p style="margin: var(--space-xs) 0 0;">بيانات ملف شركة جواهر (<bdi dir="ltr">KasimSh</bdi>)؛ نشرات وقوائم الياقوت العقارية ومشروعي <bdi dir="ltr">Marincity Trabzon</bdi> و<bdi dir="ltr">Trabzon Mountain View</bdi>؛ الدليل القانوني التركي 2026 (<bdi dir="ltr">RoNa Legal</bdi> والجريدة الرسمية 33387 بتاريخ 1 أكتوبر 2026)؛ تشريعات الجنسية والإعفاء الضريبي (<bdi dir="ltr">Serka Law</bdi> و<bdi dir="ltr">Massar Istanbul</bdi>)؛ نصوص القانون 7464 (أدلة <bdi dir="ltr">ADMD</bdi> و<bdi dir="ltr">Fursat</bdi>)؛ ودليل تكاليف المعيشة والأسواق في طرابزون 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <api-shim></api-shim>
+
+  <script>
+    const UNITS_DATA = [
+      {
+        id: `mc-1p1-opp`,
+        complex: `marine-city`,
+        complexLabel: `مارين سيتي — يومرا كاشوستو`,
+        title: `شقة فرصة 1+1 مطلة على البحر ومؤثثة بالكامل`,
+        code: `AY23224`,
+        layout: `1+1`,
+        area: 80,
+        priceTRY: 3400000,
+        priceUSD: 95000,
+        floor: `الطابق 1 (مبنى 4 طوابق)`,
+        bathrooms: 1,
+        furnished: `مفروشة ومكيفة`,
+        funnels: [`yield`, `holiday`, `str`],
+        highlights: `بناء عمره سنة واحدة، 4 د لمول جواهر، 7 د للمطار، مسبح وحدائق ومواقف، مطبخ أمريكي.`,
+        yieldEst: 6.8
+      },
+      {
+        id: `mc-trio-2p1`,
+        complex: `marine-city`,
+        complexLabel: `مارين سيتي تريو (القسم الثاني)`,
+        title: `شقة 2+1 ضمن 3 بلوكات على مساحة 24,000 م²`,
+        code: `TRIO-2P1`,
+        layout: `2+1`,
+        area: 108,
+        priceTRY: 5400000,
+        priceUSD: 150000,
+        floor: `طوابق متعددة`,
+        bathrooms: 2,
+        furnished: `تسليم تشطيب فاخر`,
+        funnels: [`yield`, `holiday`, `cbi`],
+        highlights: `مرافق فندقية (حمام تركي، ساونا، جيم، ملاعب)، خيار مثالي للجمع في محفظة $400K.`,
+        yieldEst: 6.5
+      },
+      {
+        id: `mc-trio-3p1`,
+        complex: `marine-city`,
+        complexLabel: `مارين سيتي تريو (القسم الثاني)`,
+        title: `شقة عائلية 3+1 بإطلالات بحرية وخضراء`,
+        code: `TRIO-3P1`,
+        layout: `3+1`,
+        area: 166,
+        priceTRY: 7900000,
+        priceUSD: 220000,
+        floor: `طوابق عليا متاحة`,
+        bathrooms: 2,
+        furnished: `جاهزة أو قيد التسليم`,
+        funnels: [`cbi`, `holiday`, `family`],
+        highlights: `تتجاوز عتبة $200,000 للإقامة العقارية مباشرة مع وصول كامل لمرافق المجمع الرياضي.`,
+        yieldEst: 6.2
+      },
+      {
+        id: `mc-suite-4p1`,
+        complex: `marine-city`,
+        complexLabel: `مارين سيتي — الواجهة البحرية`,
+        title: `جناح 4+1 الفاخر بتصميم «شقة داخل شقة»`,
+        code: `MC-4P1-253`,
+        layout: `4+1`,
+        area: 253,
+        priceTRY: 14500000,
+        priceUSD: 405000,
+        floor: `طابق إطلالة بانورامية`,
+        bathrooms: 3,
+        furnished: `مؤثثة فاخرة (خيارات متعددة)`,
+        funnels: [`cbi`, `family`, `str`],
+        highlights: `شقة داخلية مستقلة بغرفتين وحمام + غرفة غسيل + بلكونة بحرية واسعة. مؤهلة مباشرة للجنسية التركية.`,
+        yieldEst: 6.0
+      },
+      {
+        id: `mv-a7-single`,
+        complex: `mountain-view`,
+        complexLabel: `طرابزون ماونتن فيو`,
+        title: `شقة A7 بإطلالة بحرية وجبلية (مفروشة أو فارغة)`,
+        code: `MV-A7`,
+        layout: `1+1`,
+        area: 80,
+        priceTRY: 3600000,
+        priceUSD: 100000,
+        floor: `الطابق الأول (باب رقم 7)`,
+        bathrooms: 2,
+        furnished: `أثاث بورجوندي كابيتونيه أو فارغة`,
+        funnels: [`yield`, `holiday`, `str`],
+        highlights: `مطبخ أمريكي بورجوندي بكامل الأجهزة، 2 حمام بدش دائري زجاجي وشطاف، كود خصم إقامة SALAH26 (10%).`,
+        yieldEst: 7.5
+      },
+      {
+        id: `mv-a7a8-merged`,
+        complex: `mountain-view`,
+        complexLabel: `طرابزون ماونتن فيو`,
+        title: `خيار الدمج العائلي A7 + A8 (شقتان في شقة واحدة)`,
+        code: `MV-A7A8`,
+        layout: `merged`,
+        area: 160,
+        priceTRY: 7200000,
+        priceUSD: 202000,
+        floor: `الطابق الأول المتصل`,
+        bathrooms: 4,
+        furnished: `قابلة للتخصيص العائلي المزدوج`,
+        funnels: [`family`, `cbi`, `holiday`],
+        highlights: `دمج وحدتي A7 وA8 مع بلكونتين وإطلالة ساحرة، فصل مثالي لمجلس الضيوف والعائلة وتوافق مع عتبة الإقامة $200K.`,
+        yieldEst: 7.4
+      },
+      {
+        id: `yomra-sancak-3p1`,
+        complex: `yomra-port`,
+        complexLabel: `يومرا — حي سانجاك (مجمع سفير كونوتلار)`,
+        title: `شقة 3+1 واسعة في مجمع سكني متكامل`,
+        code: `AY-1923`,
+        layout: `3+1`,
+        area: 170,
+        priceTRY: 4000000,
+        priceUSD: 112000,
+        floor: `طابق وسطي`,
+        bathrooms: 2,
+        furnished: `غير مفروشة`,
+        funnels: [`yield`, `family`],
+        highlights: `من قوائم الياقوت الفعلية؛ مساحة واسعة بسعر اقتصادي ملائم للتأجير العائلي طويل الأمد (>100 يوم).`,
+        yieldEst: 7.8
+      },
+      {
+        id: `yomra-pan-3p1`,
+        complex: `yomra-port`,
+        complexLabel: `يومرا — نامق كمال (بانوراما 361)`,
+        title: `شقة 3+1 بإطلالة بحرية في مجمع بانوراما 361`,
+        code: `AY-1940`,
+        layout: `3+1`,
+        area: 155,
+        priceTRY: 9000000,
+        priceUSD: 250000,
+        floor: `طابق مرتفع بانورامي`,
+        bathrooms: 2,
+        furnished: `تشطيب حديث`,
+        funnels: [`cbi`, `holiday`, `family`],
+        highlights: `إطلالة بحرية مفتوحة؛ تتوفر خيارات بنفس المجمع بين 8,000,000 و9,000,000 ليرة لإكمال محفظة الجنسية.`,
+        yieldEst: 6.4
+      }
+    ];
+
+    const FUNNEL_SUMMARIES = {
+      all: `عرض شامل لكافة الأقماع الخمسة — يمكنك النقر على أي قمع لمزامنة فلتر الشقق ونموذج استشارة الواتساب تلقائياً.`,
+      yield: `القمع 01 (العائد ورأس المال): التركيز على دخول نقدي قوي، عائد 7%–10% في بيليتلي وماونتن فيو، وتفعيل إعفاء ضريبة KDV (المادة 13/i).`,
+      cbi: `القمع 02 (الجنسية والإقامة): التركيز على بلوغ $400,000 (جناح 4+1 أو محفظة هجينة) أو $200,000 للإقامة مع تثمين SPK وشهادة DAB.`,
+      holiday: `القمع 03 (السياحة والعطلات): التركيز على مناخ 22–28°C، رحلات TZX المباشرة، وكود SALAH26 (خصم 10%) في ماونتن فيو ومرافق مارين سيتي.`,
+      str: `القمع 04 (التأجير السياحي قانون 7464): تجنب غرامات 100 ألف–مليون ليرة عبر وحدات الريزيدنس المستثناة من الإجماع أو عقود >100 يوم.`,
+      family: `القمع 05 (المساحات العائلية والدمج): التركيز على دمج A7+A8 بمساحة 160 م² (4 حمامات) أو شقة داخل شقة 4+1 بمساحة 253 م² في مارين سيتي.`
+    };
+
+    const APP_STATE = {
+      activeFunnel: `all`,
+      floorplanMode: `merged`,
+      shortlist: [],
+      filters: {
+        complex: `all`,
+        layout: `all`,
+        funnel: `all`,
+        currency: `TRY`
+      },
+      calc: {
+        budget: 200000,
+        districtYield: `7.5`,
+        rentalMode: `long`,
+        vatMode: `exempt`,
+        tapuRate: `0.04`,
+        years: `5`
+      },
+      inquiry: {
+        name: ``,
+        country: ``,
+        funnel: `مستثمرو العائد ورأس المال (7%–10% + إعفاء KDV)`,
+        project: `مجمع مارين سيتي (Marine City) — يومرا كاشوستو`,
+        notes: ``
+      }
+    };
+
+    let roiChartInstance = null;
+
+    function formatUSD(num) {
+      return `$` + Math.round(num).toLocaleString(`en-US`);
+    }
+
+    function formatTRY(num) {
+      return Math.round(num).toLocaleString(`en-US`) + ` TRY`;
+    }
+
+    async function persistState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(APP_STATE);
+        } catch (err) {
+          /* Ignore transient shim errors */
+        }
+      }
+    }
+
+    function selectFunnel(funnelKey) {
+      APP_STATE.activeFunnel = funnelKey;
+
+      const keys = [`all`, `yield`, `cbi`, `holiday`, `str`, `family`];
+      keys.forEach(function (k) {
+        const btn = document.getElementById(`btn-funnel-` + k);
+        if (btn) {
+          btn.classList.toggle(`is-active`, k === funnelKey);
+        }
+        if (k !== `all`) {
+          const card = document.getElementById(`funnel-card-` + k);
+          if (card) {
+            card.classList.toggle(`is-highlighted`, funnelKey === k);
+          }
+        }
+      });
+
+      const summaryEl = document.getElementById(`active-funnel-summary`);
+      if (summaryEl) {
+        summaryEl.textContent = FUNNEL_SUMMARIES[funnelKey] || FUNNEL_SUMMARIES.all;
+      }
+
+      const funnelSelect = document.getElementById(`filter-funnel`);
+      if (funnelSelect) {
+        funnelSelect.value = funnelKey;
+        APP_STATE.filters.funnel = funnelKey;
+      }
+
+      renderUnits();
+      persistState();
+    }
+
+    function syncFunnelToInquiry() {
+      const mapFunnelText = {
+        all: `مستثمرو العائد ورأس المال (7%–10% + إعفاء KDV)`,
+        yield: `مستثمرو العائد ورأس المال (7%–10% + إعفاء KDV)`,
+        cbi: `الجنسية التركية ($400K) أو الإقامة العقارية ($200K)`,
+        holiday: `الشراء السياحي والعائلي (العطلات في طرابزون)`,
+        str: `التأجير السياحي قصير الأجل المتوافق مع قانون 7464`,
+        family: `المساحات العائلية الواسعة وخيار دمج A7+A8`
+      };
+      const waFunnel = document.getElementById(`wa-funnel`);
+      if (waFunnel) {
+        waFunnel.value = mapFunnelText[APP_STATE.activeFunnel] || mapFunnelText.yield;
+      }
+      if (APP_STATE.activeFunnel === `family`) {
+        const waProj = document.getElementById(`wa-project`);
+        if (waProj) waProj.value = `دمج شقتي A7 + A8 في ماونتن فيو (160 م²)`;
+      }
+      updateWhatsAppPreview();
+      const target = document.getElementById(`whatsapp-dossier`);
+      if (target) target.scrollIntoView({ behavior: `smooth` });
+    }
+
+    function setFloorplanMode(mode) {
+      APP_STATE.floorplanMode = mode;
+      const btnSingle = document.getElementById(`fp-btn-single`);
+      const btnMerged = document.getElementById(`fp-btn-merged`);
+      const wingA8 = document.getElementById(`fp-a8-wing`);
+      const bridge = document.getElementById(`fp-bridge`);
+      const caption = document.getElementById(`floorplan-caption`);
+
+      if (btnSingle) btnSingle.classList.toggle(`is-active`, mode === `single`);
+      if (btnMerged) btnMerged.classList.toggle(`is-active`, mode === `merged`);
+
+      if (wingA8) {
+        wingA8.style.opacity = mode === `single` ? `0.22` : `1`;
+      }
+      if (bridge) {
+        bridge.style.opacity = mode === `single` ? `0.15` : `1`;
+      }
+      if (caption) {
+        caption.textContent = mode === `single`
+          ? `الوضع الحالي: وحدة A7 مفردة (80 م² — غرفة وصالة + 2 حمام + بلكون بانورامي)`
+          : `الوضع الحالي: عرض مقارنة الدمج الكامل (A7 + A8) بمساحة 160 م² و4 حمامات وجناحين متصلين`;
+      }
+      persistState();
+    }
+
+    function filterUnitsByComplex(complexSlug) {
+      const sel = document.getElementById(`filter-complex`);
+      if (sel) {
+        sel.value = complexSlug;
+        applyUnitFilters();
+      }
+      const section = document.getElementById(`units-explorer`);
+      if (section) section.scrollIntoView({ behavior: `smooth` });
+    }
+
+    function applyUnitFilters() {
+      const c = document.getElementById(`filter-complex`);
+      const l = document.getElementById(`filter-layout`);
+      const f = document.getElementById(`filter-funnel`);
+      const cur = document.getElementById(`filter-currency`);
+
+      APP_STATE.filters.complex = c ? c.value : `all`;
+      APP_STATE.filters.layout = l ? l.value : `all`;
+      APP_STATE.filters.funnel = f ? f.value : `all`;
+      APP_STATE.filters.currency = cur ? cur.value : `TRY`;
+
+      renderUnits();
+      persistState();
+    }
+
+    function renderUnits() {
+      const grid = document.getElementById(`units-grid`);
+      const note = document.getElementById(`units-count-note`);
+      if (!grid) return;
+
+      const filtered = UNITS_DATA.filter(function (u) {
+        if (APP_STATE.filters.complex !== `all` && u.complex !== APP_STATE.filters.complex) return false;
+        if (APP_STATE.filters.layout !== `all` && u.layout !== APP_STATE.filters.layout) return false;
+        if (APP_STATE.filters.funnel !== `all` && u.funnels.indexOf(APP_STATE.filters.funnel) === -1) return false;
+        return true;
+      });
+
+      if (note) {
+        note.textContent = `عرض ${filtered.length} من أصل ${UNITS_DATA.length} نماذج عقارية موثقة (الأسعار بالدولار إرشادية مقابل القيم بالليرة التركية وفق توقيت العرض)`;
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="cream-panel" style="grid-column: 1 / -1;">
+          <strong>لا توجد وحدات مطابقة لجميع الفلاتر الحالية.</strong>
+          <p style="margin: var(--space-xs) 0 var(--space-sm);">قم بتوسيع نطاق النمط أو المشروع لاستعراض جميع خيارات مارين سيتي وماونتن فيو.</p>
+          <button type="button" class="btn btn-primary btn-sm" onclick="resetUnitFilters()">إعادة عرض كافة الوحدات</button>
+        </div>`;
+        return;
+      }
+
+      const funnelNames = {
+        yield: `عائد ورأس مال`,
+        cbi: `جنسية / إقامة`,
+        holiday: `عطلات`,
+        str: `قانون 7464`,
+        family: `دمج / عائلي`
+      };
+
+      grid.innerHTML = filtered.map(function (u) {
+        const isSaved = APP_STATE.shortlist.indexOf(u.id) !== -1;
+        const mainPrice = APP_STATE.filters.currency === `USD`
+          ? `${formatUSD(u.priceUSD)} <span style="font-size: 0.85rem; color: var(--on-surface-variant);">(${formatTRY(u.priceTRY)})</span>`
+          : `${formatTRY(u.priceTRY)} <span style="font-size: 0.85rem; color: var(--on-surface-variant);">(~${formatUSD(u.priceUSD)})</span>`;
+
+        const funnelBadges = u.funnels.map(function (fn) {
+          return `<span class="stamp">${funnelNames[fn] || fn}</span>`;
+        }).join(``);
+
+        return `
+          <article class="unit-card ${isSaved ? `is-matched` : ``}">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-xs);">
+                <span class="stamp stamp-navy">${u.complexLabel}</span>
+                <span class="mono" style="font-size: var(--label-size); color: var(--on-surface-variant);">${u.code}</span>
+              </div>
+              <h3 style="margin-bottom: var(--space-xs);">${u.title}</h3>
+              <div class="unit-price">${mainPrice}</div>
+            </div>
+
+            <div class="unit-meta-grid">
+              <div class="unit-meta-item">
+                <span class="unit-meta-label">المساحة والنمط</span>
+                <span class="unit-meta-val">${u.area} م² (<bdi dir="ltr">${u.layout === `merged` ? `A7+A8` : u.layout}</bdi>)</span>
+              </div>
+              <div class="unit-meta-item">
+                <span class="unit-meta-label">الطابق والحمامات</span>
+                <span class="unit-meta-val">${u.floor} · ${u.bathrooms} حمام</span>
+              </div>
+              <div class="unit-meta-item">
+                <span class="unit-meta-label">التأثيث والتجهيز</span>
+                <span class="unit-meta-val">${u.furnished}</span>
+              </div>
+              <div class="unit-meta-item">
+                <span class="unit-meta-label">صافي العائد المرجعي</span>
+                <span class="unit-meta-val" style="color: var(--positive);">${u.yieldEst}% سنوياً</span>
+              </div>
+            </div>
+
+            <p style="margin: 0; font-size: 0.9375rem; color: var(--on-surface-variant);">${u.highlights}</p>
+
+            <div class="stamp-row">${funnelBadges}</div>
+
+            <div class="unit-actions">
+              <button type="button" class="btn btn-primary btn-sm" onclick="loadUnitToCalculator('${u.id}')">تطبيق في الحاسبة</button>
+              <button type="button" class="btn btn-outline btn-sm ${isSaved ? `is-active` : ``}" onclick="toggleShortlist('${u.id}')">
+                ${isSaved ? `محفوظة في المفضلة` : `حفظ في المفضلة`}
+              </button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="inquireAboutUnit('${u.id}')">استفسار واتساب</button>
+            </div>
+          </article>
+        `;
+      }).join(``);
+    }
+
+    function resetUnitFilters() {
+      const c = document.getElementById(`filter-complex`);
+      const l = document.getElementById(`filter-layout`);
+      const f = document.getElementById(`filter-funnel`);
+      if (c) c.value = `all`;
+      if (l) l.value = `all`;
+      if (f) f.value = `all`;
+      selectFunnel(`all`);
+    }
+
+    function toggleShortlist(unitId) {
+      const idx = APP_STATE.shortlist.indexOf(unitId);
+      if (idx === -1) {
+        APP_STATE.shortlist.push(unitId);
+      } else {
+        APP_STATE.shortlist.splice(idx, 1);
+      }
+      renderUnits();
+      renderShortlist();
+      updateWhatsAppPreview();
+      persistState();
+    }
+
+    function renderShortlist() {
+      const container = document.getElementById(`shortlist-container`);
+      const countEl = document.getElementById(`shortlist-count`);
+      if (countEl) countEl.textContent = String(APP_STATE.shortlist.length);
+      if (!container) return;
+
+      if (APP_STATE.shortlist.length === 0) {
+        container.innerHTML = `<span style="color: var(--on-surface-variant); font-size: var(--label-size);">لم تقم بحفظ أي شقة بعد — انقر «حفظ في المفضلة» على أي بطاقة عقار أعلاه لإضافتها إلى ملفك.</span>`;
+        return;
+      }
+
+      container.innerHTML = APP_STATE.shortlist.map(function (id) {
+        const unit = UNITS_DATA.find(function (u) { return u.id === id; });
+        if (!unit) return ``;
+        return `
+          <span class="shortlist-item">
+            <span>${unit.title} (${formatUSD(unit.priceUSD)})</span>
+            <button type="button" class="shortlist-remove" aria-label="إزالة ${unit.title}" onclick="toggleShortlist('${unit.id}')">×</button>
+          </span>
+        `;
+      }).join(``);
+    }
+
+    function loadUnitToCalculator(unitId) {
+      const unit = UNITS_DATA.find(function (u) { return u.id === unitId; });
+      if (!unit) return;
+      const slider = document.getElementById(`calc-budget-slider`);
+      const num = document.getElementById(`calc-budget-number`);
+      const dist = document.getElementById(`calc-district`);
+
+      if (slider) slider.value = String(Math.min(650000, Math.max(75000, unit.priceUSD)));
+      if (num) num.value = String(unit.priceUSD);
+      if (dist) {
+        if (unit.complex === `marine-city`) dist.value = `6.5`;
+        else if (unit.complex === `mountain-view`) dist.value = `7.5`;
+        else dist.value = `7.5`;
+      }
+      updateCalculator();
+      const target = document.getElementById(`roi-calculator`);
+      if (target) target.scrollIntoView({ behavior: `smooth` });
+    }
+
+    function inquireAboutUnit(unitId) {
+      const unit = UNITS_DATA.find(function (u) { return u.id === unitId; });
+      if (!unit) return;
+      if (APP_STATE.shortlist.indexOf(unitId) === -1) {
+        APP_STATE.shortlist.push(unitId);
+        renderUnits();
+        renderShortlist();
+      }
+      const waProj = document.getElementById(`wa-project`);
+      if (waProj) {
+        if (unit.complex === `mountain-view`) {
+          waProj.value = unit.layout === `merged`
+            ? `دمج شقتي A7 + A8 في ماونتن فيو (160 م²)`
+            : `مجمع طرابزون ماونتن فيو (كود SALAH26)`;
+        } else if (unit.id === `mc-suite-4p1`) {
+          waProj.value = `مارين سيتي جناح 4+1 الفاخر (253 م²)`;
+        } else {
+          waProj.value = `مجمع مارين سيتي (Marine City) — يومرا كاشوستو`;
+        }
+      }
+      updateWhatsAppPreview();
+      persistState();
+      const target = document.getElementById(`whatsapp-dossier`);
+      if (target) target.scrollIntoView({ behavior: `smooth` });
+    }
+
+    function prefillInquiryProject(projLabel) {
+      const waProj = document.getElementById(`wa-project`);
+      if (waProj) {
+        if (projLabel.indexOf(`ماونتن`) !== -1) {
+          waProj.value = `مجمع طرابزون ماونتن فيو (كود SALAH26)`;
+        } else {
+          waProj.value = `مجمع مارين سيتي (Marine City) — يومرا كاشوستو`;
+        }
+      }
+      updateWhatsAppPreview();
+      const target = document.getElementById(`whatsapp-dossier`);
+      if (target) target.scrollIntoView({ behavior: `smooth` });
+    }
+
+    /* Dual-Input Slider/Number Sync (separate handlers per defensive_js) */
+    function syncBudgetFromSlider(val) {
+      const numEl = document.getElementById(`calc-budget-number`);
+      if (numEl) numEl.value = val;
+      updateCalculator();
+    }
+
+    function syncBudgetFromNumber(val) {
+      const sliderEl = document.getElementById(`calc-budget-slider`);
+      const parsed = parseFloat(val);
+      if (sliderEl && !isNaN(parsed)) {
+        sliderEl.value = String(Math.min(650000, Math.max(75000, parsed)));
+      }
+      updateCalculator();
+    }
+
+    function updateCalculator() {
+      const numEl = document.getElementById(`calc-budget-number`);
+      const distEl = document.getElementById(`calc-district`);
+      const rentalEl = document.getElementById(`calc-rental-mode`);
+      const vatEl = document.getElementById(`calc-vat-mode`);
+      const tapuEl = document.getElementById(`calc-tapu-mode`);
+      const yearsEl = document.getElementById(`calc-years`);
+
+      const budget = Math.max(50000, parseFloat(numEl ? numEl.value : `200000`) || 200000);
+      const baseNetYield = parseFloat(distEl ? distEl.value : `7.5`) || 7.5;
+      const rentalMode = rentalEl ? rentalEl.value : `long`;
+      const vatMode = vatEl ? vatEl.value : `exempt`;
+      const tapuRate = parseFloat(tapuEl ? tapuEl.value : `0.04`) || 0.04;
+      const years = parseInt(yearsEl ? yearsEl.value : `5`, 10) || 5;
+
+      APP_STATE.calc = {
+        budget: budget,
+        districtYield: distEl ? distEl.value : `7.5`,
+        rentalMode: rentalMode,
+        vatMode: vatMode,
+        tapuRate: tapuEl ? tapuEl.value : `0.04`,
+        years: String(years)
+      };
+
+      const effectiveYield = rentalMode === `short` ? baseNetYield + 1.2 : baseNetYield;
+      const annualNet = budget * (effectiveYield / 100);
+      const cumulativeNet = annualNet * years;
+
+      const tapuFee = budget * tapuRate;
+      const ekspertizAvg = 550;
+      const daskEst = 180;
+      let vatPayable = 0;
+      let vatSaved = 0;
+      if (vatMode === `exempt`) {
+        vatSaved = budget * 0.10;
+      } else if (vatMode === `std10`) {
+        vatPayable = budget * 0.10;
+      } else {
+        vatPayable = budget * 0.20;
+      }
+
+      const totalAcqCosts = tapuFee + ekspertizAvg + daskEst + vatPayable;
+
+      const outAnnual = document.getElementById(`out-annual-net`);
+      const outYield = document.getElementById(`out-net-yield`);
+      const outAcq = document.getElementById(`out-acq-costs`);
+      const outBreak = document.getElementById(`out-acq-breakdown`);
+      const outVat = document.getElementById(`out-vat-saved`);
+      const outVatNote = document.getElementById(`out-vat-note`);
+      const outCum = document.getElementById(`out-cumulative`);
+      const outYears = document.getElementById(`out-years-label`);
+
+      if (outAnnual) outAnnual.textContent = formatUSD(annualNet);
+      if (outYield) outYield.textContent = `صافي العائد السنوي: ${effectiveYield.toFixed(1)}%`;
+      if (outAcq) outAcq.textContent = formatUSD(totalAcqCosts);
+      if (outBreak) outBreak.textContent = `طابو ${formatUSD(tapuFee)} + تثمين $${ekspertizAvg} + DASK $${daskEst}` + (vatPayable > 0 ? ` + KDV ${formatUSD(vatPayable)}` : ``);
+      if (outVat) outVat.textContent = vatMode === `exempt` ? formatUSD(vatSaved) : `$0`;
+      if (outVatNote) {
+        outVatNote.textContent = vatMode === `exempt`
+          ? `إعفاء 10% مرجعي (يصل لـ ${formatUSD(budget * 0.20)} على شريحة 20%)`
+          : `تكلفة ضريبة KDV المضافة: ${formatUSD(vatPayable)}`;
+      }
+      if (outCum) outCum.textContent = formatUSD(cumulativeNet);
+      if (outYears) outYears.textContent = `تراكمي لـ ${years} سنوات دون احتساب نمو رأس المال`;
+
+      /* Eligibility Badges */
+      const badgesEl = document.getElementById(`calc-eligibility-badges`);
+      const noteEl = document.getElementById(`calc-strategy-note`);
+      if (badgesEl) {
+        const badges = [];
+        if (budget >= 400000) {
+          badges.push(`<span class="stamp stamp-green">مؤهل للجنسية التركية المباشرة (≥ $400,000 + Şerh 3 سنوات)</span>`);
+        } else if (budget >= 200000) {
+          badges.push(`<span class="stamp stamp-navy">مؤهل للإقامة العقارية (≥ $200,000 سكنية)</span>`);
+          badges.push(`<span class="stamp">ينقص ${formatUSD(400000 - budget)} لإكمال محفظة الجنسية</span>`);
+        } else {
+          badges.push(`<span class="stamp">شريحة استثمار العائد ($75K–$199K) — غير مؤهل للإقامة العقارية منفرداً</span>`);
+        }
+        if (vatMode === `exempt`) {
+          badges.push(`<span class="stamp stamp-green">إعفاء KDV (المادة 13/i) نشط</span>`);
+        }
+        if (rentalMode === `short`) {
+          badges.push(`<span class="stamp stamp-warn">يستلزم تصريح قانون 7464 وموافقة/ريزيدنس مستثنى</span>`);
+        }
+        badgesEl.innerHTML = badges.join(``);
+      }
+      if (noteEl) {
+        noteEl.textContent = budget >= 400000
+          ? `نصيحة الياقوت: عند هذا المبلغ يمكنك اختيار جناح 4+1 في مارين سيتي (253 م²) أو بناء محفظة هجينة (وحدة سكنية + وحدة عائد في بيليتلي) وتقديم طلب الجنسية لكامل الأسرة.`
+          : budget >= 200000
+          ? `نصيحة الياقوت: قيمة المحفظة تؤهلك للإقامة العقارية في طرابزون؛ ننصح بخيار دمج A7+A8 (160 م²) في ماونتن فيو أو شقة 3+1 في مارين سيتي تريو.`
+          : `نصيحة الياقوت: ميزانية مثالية لاستراتيجية العائد الصافي المرتفع عبر شقة 1+1 في مارين سيتي (AY23224) أو وحدة A7 في ماونتن فيو مع الاستفادة من إعفاء KDV.`;
+      }
+
+      renderROIChart(budget, effectiveYield, years);
+      updateWhatsAppPreview();
+      persistState();
+    }
+
+    function renderROIChart(budget, trabzonYieldPct, years) {
+      const canvas = document.getElementById(`roiChart`);
+      if (!canvas || typeof Chart === `undefined`) return;
+
+      const styles = getComputedStyle(document.documentElement);
+      const c1 = styles.getPropertyValue(`--data-1`).trim();
+      const c2 = styles.getPropertyValue(`--data-2`).trim();
+      const c3 = styles.getPropertyValue(`--data-3`).trim();
+      const textCol = styles.getPropertyValue(`--on-surface-variant`).trim();
+      const gridCol = styles.getPropertyValue(`--outline-variant`).trim();
+
+      const labels = [];
+      const trabzonSeries = [];
+      const dubaiSeries = [];
+      const riyadhSeries = [];
+
+      for (let y = 1; y <= years; y++) {
+        labels.push(`السنة ${y}`);
+        trabzonSeries.push(Math.round(budget * (trabzonYieldPct / 100) * y));
+        dubaiSeries.push(Math.round(budget * 0.068 * y));
+        riyadhSeries.push(Math.round(budget * 0.058 * y));
+      }
+
+      if (roiChartInstance) {
+        roiChartInstance.destroy();
+      }
+
+      roiChartInstance = new Chart(canvas.getContext(`2d`), {
+        type: `line`,
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: `طرابزون (${trabzonYieldPct.toFixed(1)}% صافي)`,
+              data: trabzonSeries,
+              borderColor: c1,
+              backgroundColor: c1,
+              borderWidth: 2.5,
+              tension: 0.15,
+              pointRadius: 4
+            },
+            {
+              label: `دبي (متوسط مرجعي 6.8%)`,
+              data: dubaiSeries,
+              borderColor: c2,
+              backgroundColor: c2,
+              borderWidth: 2,
+              borderDash: [5, 4],
+              tension: 0.15,
+              pointRadius: 3
+            },
+            {
+              label: `الرياض (متوسط مرجعي 5.8%)`,
+              data: riyadhSeries,
+              borderColor: c3,
+              backgroundColor: c3,
+              borderWidth: 2,
+              borderDash: [2, 3],
+              tension: 0.15,
+              pointRadius: 3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: `bottom`,
+              labels: {
+                color: textCol,
+                font: { family: `Noto Sans Arabic, Inter, sans-serif`, size: 12 }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: gridCol },
+              ticks: { color: textCol, font: { family: `Noto Sans Arabic, sans-serif`, size: 11 } }
+            },
+            y: {
+              grid: { color: gridCol },
+              ticks: {
+                color: textCol,
+                font: { family: `IBM Plex Mono, monospace`, size: 11 },
+                callback: function (value) { return `$` + Number(value).toLocaleString(`en-US`); }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function getTargetWhatsAppNumber() {
+      const waProj = document.getElementById(`wa-project`);
+      const val = waProj ? waProj.value : ``;
+      if (val.indexOf(`ماونتن فيو`) !== -1) {
+        return `+90 536 774 59 92`;
+      }
+      return `+90 552 715 6125`;
+    }
+
+    function buildWhatsAppText() {
+      const nameEl = document.getElementById(`wa-name`);
+      const countryEl = document.getElementById(`wa-country`);
+      const funnelEl = document.getElementById(`wa-funnel`);
+      const projectEl = document.getElementById(`wa-project`);
+      const notesEl = document.getElementById(`wa-notes`);
+
+      const name = (nameEl && nameEl.value.trim()) ? nameEl.value.trim() : `مستثمر مهتم`;
+      const country = (countryEl && countryEl.value.trim()) ? countryEl.value.trim() : `غير محدد`;
+      const funnel = funnelEl ? funnelEl.value : ``;
+      const project = projectEl ? projectEl.value : ``;
+      const notes = (notesEl && notesEl.value.trim()) ? notesEl.value.trim() : `طلب تقييم قانوني ومالي أولي للوحدات المتاحة.`;
+
+      APP_STATE.inquiry = {
+        name: nameEl ? nameEl.value : ``,
+        country: countryEl ? countryEl.value : ``,
+        funnel: funnel,
+        project: project,
+        notes: notesEl ? notesEl.value : ``
+      };
+
+      const savedNames = APP_STATE.shortlist.map(function (id) {
+        const u = UNITS_DATA.find(function (item) { return item.id === id; });
+        return u ? `- ${u.title} (${u.code} | ${formatUSD(u.priceUSD)})` : ``;
+      }).filter(Boolean);
+
+      const promoLine = project.indexOf(`ماونتن فيو`) !== -1
+        ? `\nكود خصم الإقامة المفعّل: SALAH26 (خصم 10% حتى نهاية العام)`
+        : ``;
+
+      const shortlistBlock = savedNames.length > 0
+        ? `\nالوحدات المحفوظة في قائمتي:\n${savedNames.join(`\n`)}`
+        : ``;
+
+      return `السلام عليكم ورحمة الله، السادة شركة الياقوت العقارية / جواهر (طرابزون)
+الاسم: ${name}
+البلد / التواصل: ${country}
+القمع الاستثماري: ${funnel}
+المشروع / الخيار المطلوب: ${project}
+الميزانية المحددة في الحاسبة: ${formatUSD(APP_STATE.calc.budget)} (${APP_STATE.calc.years} سنوات احتفاظ)${promoLine}${shortlistBlock}
+ملاحظات إضافية: ${notes}
+نرجو تزويدنا بتقرير التوافر الحالي وإجراءات الفحص القانوني (الطابو، SPK، DAB، وقانون 7464).`;
+    }
+
+    function updateWhatsAppPreview() {
+      const previewEl = document.getElementById(`wa-preview`);
+      const badgeEl = document.getElementById(`wa-target-badge`);
+      if (previewEl) {
+        previewEl.textContent = buildWhatsAppText();
+      }
+      if (badgeEl) {
+        badgeEl.textContent = getTargetWhatsAppNumber();
+      }
+    }
+
+    function showBanner(id, message, type) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.className = `status-banner is-visible ` + (type || `success`);
+      el.textContent = message;
+    }
+
+    async function copyText(text, bannerId, successMsg) {
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          const ta = document.createElement(`textarea`);
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand(`copy`);
+          document.body.removeChild(ta);
+        }
+        showBanner(bannerId, successMsg, `success`);
+      } catch (e) {
+        showBanner(bannerId, `تعذر النسخ التلقائي؛ يرجى نسخ النص الظاهر يدوياً.`, `warning`);
+      }
+    }
+
+    function copyWhatsAppMessage() {
+      const msg = buildWhatsAppText();
+      copyText(msg, `wa-copy-status`, `تم نسخ رسالة الاستشارة الكاملة إلى الحافظة — الصقها في محادثة واتساب للرقم ${getTargetWhatsAppNumber()}.`);
+    }
+
+    function copyTargetWhatsAppNumber() {
+      const num = getTargetWhatsAppNumber().replace(/\s+/g, ``);
+      copyText(num, `wa-copy-status`, `تم نسخ رقم الواتساب المستهدف (${num}) بنجاح.`);
+    }
+
+    async function submitInquiryDossier() {
+      const nameEl = document.getElementById(`wa-name`);
+      if (!nameEl || nameEl.value.trim().length < 2) {
+        showBanner(`wa-form-status`, `يرجى إدخال الاسم الكامل للمستثمر أولاً لإتمام حفظ ملف الاستشارة.`, `error`);
+        if (nameEl) nameEl.focus();
+        return;
+      }
+      updateWhatsAppPreview();
+      await persistState();
+      showBanner(`wa-form-status`, `تم حفظ ملف الاستشارة بنجاح في جلستك! يمكنك الآن نسخ الرسالة الجاهزة أو تصدير الملخص النصي لإرساله عبر واتساب (${getTargetWhatsAppNumber()}).`, `success`);
+    }
+
+    function downloadInvestmentSummary() {
+      const content = buildWhatsAppText() + `\n\n--- بيانات المقر الرسمي ---\nAl Yakut / Cevahir Real Estate (Kasim SH)\nPelitli, Bahar Sk. no 1A, 61000 Ortahisar, Trabzon, Turkey\nPhone: +905527156125 | Email: jwahrcevahir23@gmail.com`;
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: content,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: `al-yakut-trabzon-dossier.txt`
+        });
+        showBanner(`wa-copy-status`, `تم تصدير ملف الاستشارة الاستثمارية (al-yakut-trabzon-dossier.txt).`, `success`);
+      } else {
+        copyWhatsAppMessage();
+      }
+    }
+
+    async function handleResetPreferences(btn) {
+      if (btn && btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `انقر مرة أخرى لتأكيد إعادة الضبط`;
+        return;
+      }
+      if (btn) {
+        btn.dataset.armed = `false`;
+        btn.textContent = `إعادة ضبط التفضيلات`;
+      }
+      APP_STATE.shortlist = [];
+      APP_STATE.activeFunnel = `all`;
+      APP_STATE.floorplanMode = `merged`;
+      APP_STATE.filters = { complex: `all`, layout: `all`, funnel: `all`, currency: `TRY` };
+      APP_STATE.calc = { budget: 200000, districtYield: `7.5`, rentalMode: `long`, vatMode: `exempt`, tapuRate: `0.04`, years: `5` };
+      APP_STATE.inquiry = { name: ``, country: ``, funnel: `مستثمرو العائد ورأس المال (7%–10% + إعفاء KDV)`, project: `مجمع مارين سيتي (Marine City) — يومرا كاشوستو`, notes: `` };
+
+      restoreUIFromState();
+      await persistState();
+      showBanner(`wa-form-status`, `تمت إعادة ضبط كافة الاختيارات والقوائم إلى الوضع الافتراضي.`, `warning`);
+    }
+
+    function restoreUIFromState() {
+      const fc = document.getElementById(`filter-complex`);
+      const fl = document.getElementById(`filter-layout`);
+      const ff = document.getElementById(`filter-funnel`);
+      const fcur = document.getElementById(`filter-currency`);
+
+      if (fc) fc.value = APP_STATE.filters.complex || `all`;
+      if (fl) fl.value = APP_STATE.filters.layout || `all`;
+      if (ff) ff.value = APP_STATE.filters.funnel || `all`;
+      if (fcur) fcur.value = APP_STATE.filters.currency || `TRY`;
+
+      const bs = document.getElementById(`calc-budget-slider`);
+      const bn = document.getElementById(`calc-budget-number`);
+      const cd = document.getElementById(`calc-district`);
+      const cr = document.getElementById(`calc-rental-mode`);
+      const cv = document.getElementById(`calc-vat-mode`);
+      const ct = document.getElementById(`calc-tapu-mode`);
+      const cy = document.getElementById(`calc-years`);
+
+      if (bs) bs.value = String(Math.min(650000, Math.max(75000, APP_STATE.calc.budget || 200000)));
+      if (bn) bn.value = String(APP_STATE.calc.budget || 200000);
+      if (cd) cd.value = APP_STATE.calc.districtYield || `7.5`;
+      if (cr) cr.value = APP_STATE.calc.rentalMode || `long`;
+      if (cv) cv.value = APP_STATE.calc.vatMode || `exempt`;
+      if (ct) ct.value = APP_STATE.calc.tapuRate || `0.04`;
+      if (cy) cy.value = APP_STATE.calc.years || `5`;
+
+      const wn = document.getElementById(`wa-name`);
+      const wc = document.getElementById(`wa-country`);
+      const wf = document.getElementById(`wa-funnel`);
+      const wp = document.getElementById(`wa-project`);
+      const wno = document.getElementById(`wa-notes`);
+
+      if (wn) wn.value = APP_STATE.inquiry.name || ``;
+      if (wc) wc.value = APP_STATE.inquiry.country || ``;
+      if (wf && APP_STATE.inquiry.funnel) wf.value = APP_STATE.inquiry.funnel;
+      if (wp && APP_STATE.inquiry.project) wp.value = APP_STATE.inquiry.project;
+      if (wno) wno.value = APP_STATE.inquiry.notes || ``;
+
+      selectFunnel(APP_STATE.activeFunnel || `all`);
+      setFloorplanMode(APP_STATE.floorplanMode || `merged`);
+      renderShortlist();
+      updateCalculator();
+    }
+
+    function initScrollReveal() {
+      const items = document.querySelectorAll(`.reveal`);
+      if (!(`IntersectionObserver` in window)) {
+        items.forEach(function (el) { el.classList.add(`is-visible`); });
+        return;
+      }
+      const obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(`is-visible`);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      items.forEach(function (el) { obs.observe(el); });
+    }
+
+    async function initApp() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (saved.activeFunnel) APP_STATE.activeFunnel = saved.activeFunnel;
+            if (saved.floorplanMode) APP_STATE.floorplanMode = saved.floorplanMode;
+            if (Array.isArray(saved.shortlist)) APP_STATE.shortlist = saved.shortlist;
+            if (saved.filters) Object.assign(APP_STATE.filters, saved.filters);
+            if (saved.calc) Object.assign(APP_STATE.calc, saved.calc);
+            if (saved.inquiry) Object.assign(APP_STATE.inquiry, saved.inquiry);
+          }
+        } catch (err) {
+          /* Start with default state */
+        }
+      }
+
+      restoreUIFromState();
+      initScrollReveal();
+
+      if (window.lucide && typeof window.lucide.createIcons === `function`) {
+        window.lucide.createIcons();
+      }
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
